@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--  -->
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- my button -->
+ 
+      
+        <i class="fas fa-caret-square-up myButton "></i>
+    
+    <!-- my button -->
+    <!-- start option  -->
+    <div class="mySpiner">
+      <div class="spinner-grow"></div>
+    </div>
+    <div class="option">
+      <div class="option-list">
+        <i class="fa fa-gear"></i>
+      </div>
+      <div class="colors">
+        <h5>Colors</h5>
+        <div class="color">
+          <span
+            data-color1="#4937f0"
+            data-color2="#9244f0"
+            data-color3="#160a2d"
+            data-color4="#211141"
+            class="active"
+          ></span>
+          <span
+            data-color1="#eeb378"
+            data-color2="#b35ed3"
+            data-color3="#160a2d"
+            data-color4="#211141"
+          ></span>
+          <span
+            data-color1="#0093e9"
+            data-color2="#80d0c7"
+            data-color3="#160a2d"
+            data-color4="#211141"
+          ></span>
+          <span
+            data-color1="#0ba360"
+            data-color2="#3cba92"
+            data-color3="#160a2d"
+            data-color4="#211141"
+          ></span>
+          <span
+            data-color1="#160a2d"
+            data-color2="#211141"
+            data-color3="#160a2d"
+            data-color4="#211141"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <!-- end option  -->
+    <!--  start nav -->
+    <nav class="navbar navbar-expand-lg mainNav" id="mainNav">
+      <div class="container-fluid navContainer">
+        <a class="navbar-brand" href="./index.html">Navbar</a>
+        <button
+          class="navbar-toggler ms-auto buttonIcon"
+          id="buttonIcon"
+          type="button"
+        >
+          <div class="Row Row-1"></div>
+          <div class="Row Row-2"></div>
+          <div class="Row Row-3"></div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active links" aria-current="page" href="#Home"
+                >Home</a
+              >
+            </li>
+            <!--  -->
+            <li class="nav-item">
+              <a class="nav-link" href="#About">About</a>
+            </li>
+            <!--  -->
+            <!--  -->
+            <li class="nav-item">
+              <a class="nav-link" href="#Services">Services</a>
+            </li>
+            <!--  -->
+            <!--  -->
+            <li class="nav-item">
+              <a class="nav-link" href="#Portfolio">Portfolio</a>
+            </li>
+            <!--  -->
+            <!--  -->
+
+            <!--  -->
+          </ul>
+        </div>
+        <a href="#Content" class="px-3 py-1 Content">Content</a>
+      </div>
+      <div class="clickNav" id="clickNav">
+        <div class="clickul">
+          <a class="active" href="#Home">Home</a>
+
+          <a href="#About">About</a>
+
+          <a href="#Services" id="Services">Services</a>
+
+          <a href="#Portfolio" id="Portfolio">Portfolio</a>
+        </div>
+        <!--  -->
+        <div class="icons">
+          <!--  -->
+          <div class="icon">
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-whatsapp-square"></i>
+            </a>
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-github-square"></i>
+            </a>
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-facebook-square"></i
+            ></a>
+          </div>
+          <!--  -->
+          <div class="icon">
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-behance-square"></i>
+            </a>
+            <a href="#" target="_blank">
+              <i class="fa-solid fa-square-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav  -->
+    <!--  start section -->
+    <section class="main-section container-fluid" id="Home">
+      <div class="container">
+        <div class="info">
+          <!--  -->
+          <div class="left">
+            <h1 data-aos="fade-right">Hi, I'm Yousef AboKassem</h1>
+            <h2 data-aos="fade-right">
+              I'm a
+              <span class="typed-text"></span>
+              <span class="cursor typing">&nbsp;</span>
+            </h2>
+          </div>
+          <p>
+            I'm a student in al sham private university and i offer High level
+            experience in front end development.
+          </p>
+          <button class="btn px-3">Download CV</button>
+          <!--  -->
+        </div>
+
+        <div class="image">
+          <img
+            src="./img/me.png"
+            class=""
+            style="width: 500px; height: 500px"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <!--  end section -->
+    <div class="about container-fluid" id="About">
+      <div class="container child-about d-flex flex-column">
+        <div class="col1 d-flex justify-content-around align-content-center">
+          <div class="image text-center">
+            <h1 class="fw-bold mb-4">About Me</h1>
+            <img src="./img/arLogo.png" alt="" />
+          </div>
+          <div class="progresses">
+            <!--  -->
+            <div class="Progress my-3">
+              <div class="info d-flex justify-content-between">
+                <h3>HTML</h3>
+                <span>75%</span>
+              </div>
+              <div class="position-relative">
+                <span
+                  class="spanProgress spanProgress-0"
+                  data-width="75%"
+                ></span>
+              </div>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="Progress my-3">
+              <div class="info d-flex justify-content-between">
+                <h3>CSS</h3>
+                <span>80%</span>
+              </div>
+              <div class="position-relative">
+                <span
+                  class="spanProgress spanProgress-1"
+                  data-width="80%"
+                ></span>
+              </div>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="Progress my-3">
+              <div class="info d-flex justify-content-between">
+                <h3>JS</h3>
+                <span>50%</span>
+              </div>
+              <div class="position-relative">
+                <span
+                  class="spanProgress spanProgress-2"
+                  data-width="50%"
+                ></span>
+              </div>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="Progress my-3">
+              <div class="info d-flex justify-content-between">
+                <h3>SCSS</h3>
+                <span>60%</span>
+              </div>
+              <div class="position-relative">
+                <span
+                  class="spanProgress spanProgress-3"
+                  data-width="60%"
+                ></span>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+        <div class="col2">
+          <div class="box tilt box-1">
+            <h1>02</h1>
+            <h2>Years Experience</h2>
+          </div>
+          <!--  -->
+          <div class="box tilt box-2">
+            <h1>+10</h1>
+            <h2>Client</h2>
+          </div>
+          <!--  -->
+          <div class="box tilt box-3">
+            <h1>03</h1>
+            <h2>project</h2>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/tilt.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
