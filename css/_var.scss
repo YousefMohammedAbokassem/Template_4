@@ -2,6 +2,8 @@
   --main-color: #4937f0;
   --second-color: #9244f0;
 
+  --spin-color: #111;
+  --text-color: #fff;
   --dark-bg: #160a2d;
   --light-bg: #211141;
   --grad2-clr-left: #eeb378;
@@ -20,6 +22,8 @@
   //
 }
 // background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+
+
 // background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 //  media queries
 $max-mobile: "max-width:767px";

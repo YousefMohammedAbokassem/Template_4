@@ -1,4 +1,5 @@
-// ===================    Type Writing   ======================
+// import * as all from "./scroll.js";
+
 $(document).ready(function () {
   // nav
   let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
@@ -46,6 +47,7 @@ $(document).ready(function () {
   // start option
   let myOption = document.querySelector(".option");
   let myGear = document.querySelector(".fa-gear");
+  console.log(myGear)
   myGear.addEventListener("click", function () {
     myOption.classList.toggle("active");
     myGear.classList.toggle("fa-spin");
@@ -73,6 +75,10 @@ $(document).ready(function () {
       "--light-color",
       localStorage.getItem("color4")
     );
+    document.documentElement.style.setProperty(
+      "--text-color",
+      localStorage.getItem("color5")
+    );
     spans.forEach(function (span) {
       span.classList.remove("active");
 
@@ -84,6 +90,9 @@ $(document).ready(function () {
   spans.forEach(function (span) {
     span.addEventListener("click", function (el) {
       spans.forEach(function (e) {
+        // if (e.classList.contains("dark")) {
+        //   myGear.style.color = "#fff";
+        // }
         e.classList.remove("active");
       });
       // span.target.classList.add("active");
@@ -94,6 +103,8 @@ $(document).ready(function () {
       localStorage.setItem("color2", el.target.dataset.color2);
       localStorage.setItem("color3", el.target.dataset.color3);
       localStorage.setItem("color4", el.target.dataset.color4);
+      localStorage.setItem("color5", el.target.dataset.color5);
+      localStorage.setItem("color6", el.target.dataset.color6);
       // set item
       document.documentElement.style.setProperty(
         "--main-color",
@@ -110,6 +121,14 @@ $(document).ready(function () {
       document.documentElement.style.setProperty(
         "--light-bg",
         el.target.dataset.color4
+      );
+      document.documentElement.style.setProperty(
+        "--text-color",
+        el.target.dataset.color5
+      );
+      document.documentElement.style.setProperty(
+        "--spin-color",
+        el.target.dataset.color6
       );
     });
   });
