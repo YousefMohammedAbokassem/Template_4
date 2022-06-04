@@ -47,7 +47,7 @@ $(document).ready(function () {
   // start option
   let myOption = document.querySelector(".option");
   let myGear = document.querySelector(".fa-gear");
-  console.log(myGear)
+  console.log(myGear);
   myGear.addEventListener("click", function () {
     myOption.classList.toggle("active");
     myGear.classList.toggle("fa-spin");
@@ -68,16 +68,24 @@ $(document).ready(function () {
       localStorage.getItem("color2")
     );
     document.documentElement.style.setProperty(
-      "--dark-color",
+      "--dark-bg",
       localStorage.getItem("color3")
     );
     document.documentElement.style.setProperty(
-      "--light-color",
+      "--light-bg",
       localStorage.getItem("color4")
     );
     document.documentElement.style.setProperty(
       "--text-color",
       localStorage.getItem("color5")
+    );
+    document.documentElement.style.setProperty(
+      "--spin-color",
+      localStorage.getItem("color6")
+    );
+    document.documentElement.style.setProperty(
+      "--spinBackground-color",
+      localStorage.getItem("color7")
     );
     spans.forEach(function (span) {
       span.classList.remove("active");
@@ -105,6 +113,7 @@ $(document).ready(function () {
       localStorage.setItem("color4", el.target.dataset.color4);
       localStorage.setItem("color5", el.target.dataset.color5);
       localStorage.setItem("color6", el.target.dataset.color6);
+      localStorage.setItem("color7", el.target.dataset.color7);
       // set item
       document.documentElement.style.setProperty(
         "--main-color",
@@ -129,6 +138,10 @@ $(document).ready(function () {
       document.documentElement.style.setProperty(
         "--spin-color",
         el.target.dataset.color6
+      );
+      document.documentElement.style.setProperty(
+        "--spinBackground-color",
+        el.target.dataset.color7
       );
     });
   });
@@ -269,6 +282,11 @@ VanillaTilt.init(document.querySelectorAll(".tiltG"), {
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
   max: 25,
   speed: 500,
+});
+
+var swiper = new Swiper(".mySwiper", {
+  effect: "cards",
+  grabCursor: true,
 });
 document.addEventListener("DOMContentLoaded", function () {
   // On DOM Load initiate the effect

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/swiper.css" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -44,6 +45,14 @@
       <div class="colors">
         <h5>Colors</h5>
         <div class="color">
+          <!-- 
+            1,2 gradient
+            3  dark background
+            4  light background
+            5, text color
+            6 spin color
+            7 spin background
+            -->
           <span
             data-color1="#4937f0"
             data-color2="#9244f0"
@@ -51,6 +60,7 @@
             data-color4="#211141"
             data-color5="#fff"
             data-color6="#111"
+            data-color7="#fff"
             class="active"
           ></span>
           <span
@@ -60,6 +70,7 @@
             data-color4="#211141"
             data-color5="#fff"
             data-color6="#111"
+            data-color7="#fff"
           ></span>
           <span
             data-color1="#0093e9"
@@ -68,24 +79,27 @@
             data-color4="#211141"
             data-color5="#fff"
             data-color6="#111"
+            data-color7="#fff"
           ></span>
           <span
             data-color1="#0ba360"
             data-color2="#3cba92"
-            data-color3="#160a2d"
-            data-color4="#211141"
+            data-color3="rgb(47, 84, 47)"
+            data-color4="rgb(31 86 31 / 88%)"
             data-color5="#fff"
+            data-color7="#fff"
             data-color6="#111"
-
           ></span>
           <!-- black theme -->
-          <span class="dark"
+          <span
+            class="dark"
             data-color1="#160a2d"
             data-color2="#211141"
-            data-color3="#160a2d"
-            data-color4="#211141"
-            data-color5="#111"
+            data-color3="#000000"
+            data-color4="#434343"
+            data-color5="#fff"
             data-color6="#fff"
+            data-color7="#111"
           ></span>
         </div>
       </div>
@@ -93,7 +107,7 @@
     <!-- end option  -->
     <!--  start nav -->
     <nav class="navbar navbar-expand-lg mainNav" id="mainNav">
-      <div class="container-fluid navContainer">
+      <div class="container navContainer">
         <a class="navbar-brand" href="./index.html">Navbar</a>
         <button
           class="navbar-toggler ms-auto buttonIcon"
@@ -139,9 +153,9 @@
 
           <a href="#About">About</a>
 
-          <a href="#Services" id="Services">Services</a>
+          <a href="#Services">Services</a>
 
-          <a href="#Portfolio" id="Portfolio">Portfolio</a>
+          <a href="#Portfolio">Portfolio</a>
         </div>
         <!--  -->
         <div class="icons">
@@ -205,6 +219,7 @@
       </div>
     </section>
     <!--  end section -->
+    <!-- start about -->
     <div class="about container-fluid" id="About">
       <div class="container child-about d-flex flex-column">
         <div class="col1 d-flex justify-content-around align-content-center">
@@ -290,11 +305,65 @@
         </div>
       </div>
     </div>
-
+    <!-- end about -->
+    <!-- start services -->
+    <div class="services" id="Services">
+      <div class="swiper main-box mySwiper">
+        <div class="swiper-wrapper">
+          <!-- start -->
+          <div class="swiper-slide main-box">
+            <div class="Box">
+              <h2>Web development</h2>
+              <p>
+                I can building the front end of your site with the highest
+                efficiency using the latest technologies
+              </p>
+              <div class="links">
+                <a id="contact">Contact</a>
+                <a id="See">See Project</a>
+              </div>
+            </div>
+          </div>
+          <!--end-->
+          <!-- start -->
+          <div class="swiper-slide main-box">
+            <div class="Box">
+              <h2>Flutter development</h2>
+              <p>
+                I can building the front end of your site with the highest
+                efficiency using the latest technologies
+              </p>
+              <div class="links">
+                <a id="contact">Contact</a>
+                <a id="See">See Project</a>
+              </div>
+            </div>
+          </div>
+          <!--end-->
+          <!-- start -->
+          <div class="swiper-slide main-box">
+            <div class="Box">
+              <h2>Front End Developer</h2>
+              <p>
+                I can building the front end of your site with the highest
+                efficiency using the latest technologies
+              </p>
+              <div class="links">
+                <a id="contact">Contact</a>
+                <a id="See">See Project</a>
+              </div>
+            </div>
+          </div>
+          <!--end-->
+        </div>
+        <!-- end services -->
+      </div>
+    </div>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/tilt.js"></script>
-    <script src="./js/wow.min.js"></script>
+    <!-- <script src="./js/wow.min.js"></script> -->
     <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/scroll.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

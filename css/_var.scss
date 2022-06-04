@@ -3,6 +3,8 @@
   --second-color: #9244f0;
 
   --spin-color: #111;
+  --spinBackground-color:#fff;
+  
   --text-color: #fff;
   --dark-bg: #160a2d;
   --light-bg: #211141;
@@ -17,8 +19,10 @@
   // #0093e9
   // #80d0c7
   //
-  // #0ba360
-  // #3cba92
+  color: #0ba360;
+  background-color: rgb(47, 84, 47);
+  background-color: rgba(166, 193, 166, 0.88);
+  color:#3cba92
   //
 }
 // background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
