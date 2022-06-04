@@ -498,8 +498,8 @@ nav .clickNav .icons .icon a i:hover {
 }
 
 .main-section > div:first-child p {
-  margin: 40px 0px;
   font-weight: 300;
+  margin: 40px 0px;
   line-height: 20px;
   font-size: 20px;
   text-transform: capitalize;
@@ -507,8 +507,8 @@ nav .clickNav .icons .icon a i:hover {
 
 @media (max-width: 767px) {
   .main-section > div:first-child p {
-    margin: 40px;
-    line-height: 30px;
+    margin: 40px 65px;
+    line-height: 35px;
   }
 }
 
