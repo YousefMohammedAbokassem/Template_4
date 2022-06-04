@@ -335,14 +335,14 @@ nav {
     }
     p {
       // margin-top: 50px;
-      margin: 40px 0px;
       font-weight: 300;
+      margin: 40px 0px;
       line-height: 20px;
       font-size: 20px;
       text-transform: capitalize;
       @include media("mobile") {
-        margin: 40px;
-        line-height: 30px;
+        margin: 40px 65px;
+        line-height: 35px;
       }
     }
     button {
@@ -366,7 +366,7 @@ nav {
     display: flex;
     .col1 {
       gap: 75px;
-      overflow:hidden ;
+      overflow: hidden;
       @include media("mobile") {
         flex-direction: column;
         align-items: center;
