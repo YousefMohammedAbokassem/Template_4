@@ -539,6 +539,10 @@ nav .clickNav .icons .icon a i:hover {
   display: flex;
 }
 
+.about .child-about .col1 {
+  gap: 75px;
+}
+
 @media (max-width: 767px) {
   .about .child-about .col1 {
     -webkit-box-orient: vertical;
@@ -568,6 +572,12 @@ nav .clickNav .icons .icon a i:hover {
   max-width: 300px;
   -webkit-transition: var(--main-transition);
   transition: var(--main-transition);
+}
+
+.about .child-about .col1 .progresses .Progress .info h3,
+.about .child-about .col1 .progresses .Progress .info span {
+  color: var(--text-color);
+  text-transform: capitalize;
 }
 
 .about .child-about .col1 .progresses .Progress > div:nth-child(2) {
@@ -739,29 +749,25 @@ nav .clickNav .icons .icon a i:hover {
   }
 }
 
-.services {
-  padding: var(--padding-top) 0px;
-  background-color: var(--light-bg);
+.main-box {
+  width: 300px !important;
+  height: 300px !important;
+  border-radius: 30px;
 }
 
-.services .main-box {
-  width: 400px !important;
-  height: 400px !important;
-}
-
-.services .main-box:first-child {
+.main-box:first-child {
   background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
 }
 
-.services .main-box:nth-child(2) {
+.main-box:nth-child(2) {
   background-image: linear-gradient(45deg, #0093e9, #80d0c7);
 }
 
-.services .main-box:nth-child(3) {
+.main-box:nth-child(3) {
   background-image: linear-gradient(45deg, var(--grad2-clr-left), var(--grad2-clr-right));
 }
 
-.services .Box {
+.Box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -778,18 +784,19 @@ nav .clickNav .icons .icon a i:hover {
   height: 100%;
 }
 
-.services .Box h2 {
+.Box h2 {
   text-align: center;
   color: var(--text-color);
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
 }
 
-.services .Box p {
+.Box p {
   text-align: center;
+  margin: 15px;
 }
 
-.services .Box .links {
+.Box .links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -802,8 +809,8 @@ nav .clickNav .icons .icon a i:hover {
   width: 100%;
 }
 
-.services .Box .links #contact,
-.services .Box .links #See {
+.Box .links #contact,
+.Box .links #See {
   color: var(--text-color);
   border: 3px solid var(--text-color);
   padding: 5px 25px;
@@ -814,8 +821,8 @@ nav .clickNav .icons .icon a i:hover {
   position: relative;
 }
 
-.services .Box .links #contact::before,
-.services .Box .links #See::before {
+.Box .links #contact::before,
+.Box .links #See::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -826,14 +833,21 @@ nav .clickNav .icons .icon a i:hover {
   height: 0px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  background-color: var(--light-bg);
+  background-color: #fff;
+  border-radius: 10px;
   z-index: -1;
 }
 
-.services .Box .links #contact:hover::before,
-.services .Box .links #See:hover::before {
+.Box .links #contact:hover::before,
+.Box .links #See:hover::before {
   width: 98%;
   height: 98%;
+}
+
+.Box .links #contact:hover,
+.Box .links #See:hover {
+  color: #111;
+  border-color: rgba(17, 17, 17, 0.092);
 }
 
 @-webkit-keyframes blink {
