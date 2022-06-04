@@ -157,7 +157,6 @@ const textArray = [
   "Front-End Developer",
   "Flutter developrer",
   "Back end developer",
-  "Data base ",
 ];
 const typingDelay = 200;
 const erasingDelay = 100;
@@ -287,6 +286,19 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
 var swiper = new Swiper(".mySwiper", {
   effect: "cards",
   grabCursor: true,
+});
+var swiper = new Swiper(".myCube", {
+  effect: "cube",
+  grabCursor: true,
+  cubeEffect: {
+    shadow: true,
+    slideShadows: true,
+    shadowOffset: 20,
+    shadowScale: 0.94,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
 });
 document.addEventListener("DOMContentLoaded", function () {
   // On DOM Load initiate the effect

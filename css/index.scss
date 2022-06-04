@@ -299,7 +299,7 @@ nav {
     }
     .left {
       width: 455px;
-      margin: 0px auto;
+      margin: 10px;
       h1 {
         @include textgdarient();
         font-weight: 300;
@@ -366,6 +366,7 @@ nav {
     display: flex;
     .col1 {
       gap: 75px;
+      overflow:hidden ;
       @include media("mobile") {
         flex-direction: column;
         align-items: center;
@@ -505,17 +506,13 @@ nav {
 }
 
 // end about
-// start services
-// .services {
-//   padding: var(--padding-top) 0px;
-//   background-color: var(--light-bg);
 .main-box {
   width: 300px !important;
   height: 300px !important;
   border-radius: 30px;
 }
 .main-box:first-child {
-  @include gradient(45deg);
+  background-image: linear-gradient(45deg, #3cba92, #0ba360);
 }
 .main-box:nth-child(2) {
   background-image: linear-gradient(45deg, #0093e9, #80d0c7);
@@ -526,6 +523,9 @@ nav {
     var(--grad2-clr-left),
     var(--grad2-clr-right)
   );
+}
+.main-box:nth-child(4) {
+  background-image: linear-gradient(45deg, rgb(44, 44, 44), #666666);
 }
 .Box {
   display: flex;
@@ -581,6 +581,7 @@ nav {
     }
   }
 }
+// start services
 
 // end services
 @keyframes blink {
