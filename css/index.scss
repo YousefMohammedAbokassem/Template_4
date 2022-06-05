@@ -386,6 +386,7 @@ nav {
     .image {
       transition: var(--main-transition);
       position: relative;
+      animation: image 2.5s infinite alternate-reverse linear;
       .img {
         border-radius: 50%;
         border: 3px solid var(--main-color);
@@ -649,6 +650,21 @@ nav {
 }
 // start services
 .services {
+  padding: var(--padding-top) 0px;
+  @include cardhover(Card, 180deg, "y");
+  @include gridcol(300px, 40px);
+  .Card {
+    margin: auto;
+  }
+  .card1 {
+    @include flexcenter;
+    @include gradient(45deg);
+  }
+  .card2 {
+    display: flex;
+    @include flexcenter;
+    @include gradient(135deg);
+  }
   background-color: var(--light-bg);
   .swiper {
     width: 100%;
@@ -668,6 +684,14 @@ nav {
   }
 }
 // end services
+@include keyF(image){
+  from{
+    transform: translateX(-8px);
+  }to{
+
+    transform: translateX(8px);
+  }
+}
 @keyframes blink {
   0%,
   49%,
