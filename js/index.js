@@ -12,6 +12,23 @@ $(document).ready(function () {
     });
   });
 
+  let Hover = document.querySelector(".Hover");
+  let mylis = document.querySelectorAll(".myli");
+
+  mylis[0].onclick = function () {
+    Hover.style.cssText = "left:14px;  ";
+  };
+  mylis[1].onclick = function () {
+    Hover.style.cssText = "left:105px; ";
+  };
+  mylis[2].onclick = function () {
+    Hover.style.cssText = "left: 194px; width: 83px; ";
+  };
+  mylis[3].onclick = function () {
+    Hover.style.cssText = "left: 306px; width: 84px;";
+  };
+
+  //
   let myButton = document.getElementById("buttonIcon");
   let Rows = document.querySelectorAll(".Row");
   let clickNav = document.getElementById("clickNav");
@@ -36,7 +53,6 @@ $(document).ready(function () {
       Rows[1].style.opacity = "1";
       Rows[2].style.transform = "rotate(0deg)";
       Rows[2].style.width = "40px";
-
       clickNav.style.pointerEvents = "none";
       clickNav.style.opacity = "0";
       myButton.classList.remove("show");
@@ -47,7 +63,6 @@ $(document).ready(function () {
   // start option
   let myOption = document.querySelector(".option");
   let myGear = document.querySelector(".fa-gear");
-  console.log(myGear);
   myGear.addEventListener("click", function () {
     myOption.classList.toggle("active");
     myGear.classList.toggle("fa-spin");
@@ -147,9 +162,9 @@ $(document).ready(function () {
   });
   // end colors
 });
-document.querySelector(".mySpiner").addEventListener("load", function () {
-  document.querySelector(".mySpiner").style.display = "flex";
-});
+// document.querySelector(".mySpiner").addEventListener("load", function () {
+//   document.querySelector(".mySpiner").style.display = "flex";
+// });
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
@@ -201,16 +216,25 @@ function erasing() {
 
 // nav
 let mainNav = document.getElementById("mainNav");
+let mySection = document.querySelector(".main-section");
 let meImage = document.querySelector(".main-section .image");
-
+//
 let imageAbout = document.querySelector(".about .image");
 let spans = document.querySelectorAll(".spanProgress");
+let span = document.querySelectorAll(".Progress .info span:first-child");
+
+console.log(span);
+let stat = false;
+
 let about = document.querySelector(".about");
 let Projects = document.querySelector(".about .col2");
 
 // button
 let myButton = document.querySelector(".myButton");
+// services
+let services = document.querySelector(".services");
 window.onscroll = function () {
+  console.log(window.scrollY);
   if (window.scrollY > mainNav.offsetTop + 50) {
     mainNav.style.boxShadow = " 0 5px 7px rgb(0 0 0 / 13%)";
   } else {
@@ -226,7 +250,7 @@ window.onscroll = function () {
   }
   // nav
   // start About section
-  if (window.scrollY >= imageAbout.offsetTop - 500) {
+  if (window.scrollY >= imageAbout.offsetTop - 400) {
     imageAbout.style.opacity = "1";
     imageAbout.style.left = "0";
   } else {
@@ -248,9 +272,23 @@ window.onscroll = function () {
     spans.forEach(function (span) {
       span.style.width = span.dataset.width;
     });
+    //
+    if (stat === false) {
+      span.forEach((el) => {
+        let goal = el.dataset.count;
+        el.innerHTML = 0;
+        let count = setInterval(() => {
+          el.textContent++;
+          if (el.textContent === goal) {
+            clearTimeout(count);
+          }
+        }, 1000 / goal);
+      });
+      stat = true;
+    }
   } else {
+    stat = false;
     document.querySelector(".progresses").style.opacity = "0";
-
     spans.forEach(function (span) {
       span.style.width = "0%";
     });
@@ -263,6 +301,41 @@ window.onscroll = function () {
     Projects.style.transform = "translateY(100px)";
   }
   // end About section
+  // start nav scroll
+  if (window.scrollY < about.offsetTop - 300) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left:14px";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[0].classList.add("links");
+    //
+  }
+  //
+  if (window.scrollY >= about.offsetTop - 300) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left: 105px; ";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[1].classList.add("links");
+    //
+  }
+  if (window.scrollY >= services.offsetTop - 300) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left: 194px; width: 83px; ";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[2].classList.add("links");
+  }
+  // // end nav scroll
 };
 // button
 myButton.addEventListener("click", () => {
@@ -272,15 +345,20 @@ myButton.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
-
-VanillaTilt.init(document.querySelectorAll(".tiltG"), {
-  max: 25,
-  speed: 400,
-  glare: true,
-});
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
   max: 25,
-  speed: 500,
+  speed: 600,
+});
+VanillaTilt.init(document.querySelectorAll(".tiltG"), {
+  max: 25,
+  speed: 600,
+  glare: true,
+  "max-glare": 0.5,
+});
+VanillaTilt.init(document.querySelectorAll(".glare"), {
+  max: 0,
+  glare: true,
+  "max-glare": 0.25,
 });
 
 var swiper = new Swiper(".mySwiper", {
@@ -300,7 +378,36 @@ var swiper = new Swiper(".myCube", {
     el: ".swiper-pagination",
   },
 });
+var swiper = new Swiper(".myEffect", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
+let myanim = document.querySelector(".animaitionload");
+let myanimLeft = document.querySelector(".animaitionload .Left");
+let myanimRight = document.querySelector(".animaitionload .Right");
+console.log(myanim);
+console.log(myanimLeft);
+console.log(myanimRight);
 document.addEventListener("DOMContentLoaded", function () {
   // On DOM Load initiate the effect
-  if (textArray.length) setTimeout(typing, newTextDelay);
+  if (textArray.length) {
+    setTimeout(typing, newTextDelay);
+  }
+  //
+  myanimLeft.style.left = "-2000px";
+  myanimRight.style.right = "-2000px";
+  //
 });
+

@@ -189,8 +189,8 @@ $them: "dark";
       width: 100%;
       height: $height;
       background-size: $height $height;
-      background-image: linear-gradient(135deg, white 25%, transparent 25%),
-        linear-gradient(225deg, white 25%, transparent 25%);
+      background-image: linear-gradient(135deg, var(--light-bg) 25%, transparent 25%),
+        linear-gradient(225deg, var(--light-bg) 25%, transparent 25%);
     }
   }
 }

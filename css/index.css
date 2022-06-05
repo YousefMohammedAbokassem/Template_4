@@ -22,6 +22,7 @@
 body {
   font-family: "Cairo", sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 * {
@@ -45,6 +46,25 @@ body {
   -webkit-text-fill-color: white;
 }
 
+.zic {
+  position: relative;
+  z-index: 100;
+}
+
+.zic::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: linear-gradient(135deg, var(--light-bg) 25%, transparent 25%), linear-gradient(225deg, var(--light-bg) 25%, transparent 25%);
+}
+
+.Hover {
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -57,6 +77,49 @@ body {
 ::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(var(--main-color)), to(transparent));
   background: linear-gradient(to bottom, transparent, var(--main-color), transparent);
+}
+
+.animaitionload {
+  width: 100%;
+  height: 100vh;
+  z-index: 100000;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.animaitionload .Left,
+.animaitionload .Right {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 40px;
+  background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+  color: var(--text-color);
+  pointer-events: none;
+  -webkit-transition: 10s;
+  transition: 10s;
+}
+
+.animaitionload .Left {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  left: -0px;
+}
+
+.animaitionload .Right {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  right: -0px;
 }
 
 .myButton {
@@ -327,6 +390,19 @@ nav .clickNav .icons .icon a i:hover {
           box-shadow: none;
 }
 
+.mainNav .navContainer ul {
+  position: relative;
+}
+
+.mainNav .navContainer ul .Hover {
+  position: absolute;
+  width: 15%;
+  height: 5px;
+  background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+  left: 14px;
+  bottom: 0px;
+}
+
 .mainNav .navContainer ul a {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
@@ -445,7 +521,7 @@ nav .clickNav .icons .icon a i:hover {
 
 .main-section > div:first-child .left {
   width: 455px;
-  margin: 10px;
+  margin: 0px auto;
 }
 
 .main-section > div:first-child .left h1 {
@@ -485,10 +561,33 @@ nav .clickNav .icons .icon a i:hover {
           animation: none;
 }
 
+@media (max-width: 991px) {
+  .main-section > div:first-child .left h2 {
+    margin: 10px 35px;
+  }
+}
+
+@media (min-width: 991px) {
+  .main-section > div:first-child .left {
+    margin: 0px;
+  }
+}
+
 .main-section > div:first-child .image {
   -webkit-transition: var(--main-transition);
   transition: var(--main-transition);
   position: relative;
+}
+
+.main-section > div:first-child .image .img {
+  border-radius: 50%;
+  border: 3px solid var(--main-color);
+  width: 348px;
+  height: 348px;
+  -webkit-box-shadow: 0px 0px 10px var(--main-color);
+          box-shadow: 0px 0px 10px var(--main-color);
+  -webkit-filter: drop-shadow(2px 2px 20px var(--second-color));
+          filter: drop-shadow(2px 2px 20px var(--second-color));
 }
 
 @media (max-width: 991px) {
@@ -499,15 +598,15 @@ nav .clickNav .icons .icon a i:hover {
 
 .main-section > div:first-child p {
   font-weight: 300;
-  margin: 40px 0px;
-  line-height: 20px;
+  margin: 30px 0px;
+  line-height: 30px;
   font-size: 20px;
   text-transform: capitalize;
 }
 
 @media (max-width: 767px) {
   .main-section > div:first-child p {
-    margin: 40px 65px;
+    margin: 55px 65px 34px;
     line-height: 35px;
   }
 }
@@ -562,10 +661,11 @@ nav .clickNav .icons .icon a i:hover {
   position: relative;
 }
 
-.about .child-about .col1 .image img {
+.about .child-about .col1 .image .img {
   border-radius: 50%;
-  width: 200px;
   border: 3px solid;
+  width: 500px;
+  height: 500px;
 }
 
 .about .child-about .col1 .progresses {
@@ -853,6 +953,30 @@ nav .clickNav .icons .icon a i:hover {
 .Box .links #See:hover {
   color: #111;
   border-color: rgba(17, 17, 17, 0.092);
+}
+
+.services {
+  background-color: var(--light-bg);
+}
+
+.services .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.services .swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.services .swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  -webkit-box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.13), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.13), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
 }
 
 @-webkit-keyframes blink {

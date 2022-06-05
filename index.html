@@ -26,7 +26,9 @@
       rel="stylesheet"
     />
     <!--  -->
-    <title>Document</title>
+    <link rel="icon" href="./img/me.png" />
+
+    <title>Portfolio</title>
   </head>
   <body>
     <!-- my button -->
@@ -35,9 +37,11 @@
 
     <!-- my button -->
     <!-- start option  -->
-    <div class="mySpiner">
-      <div class="spinner-grow"></div>
+    <div class="animaitionload">
+      <div class="Left">WEL</div>
+      <div class="Right">COME</div>
     </div>
+    <!--  -->
     <div class="option">
       <div class="option-list">
         <i class="fa fa-gear"></i>
@@ -120,23 +124,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+            <span class="Hover"></span>
+            <li class="nav-item myli">
               <a class="nav-link active links" aria-current="page" href="#Home"
                 >Home</a
               >
             </li>
             <!--  -->
-            <li class="nav-item">
+            <li class="nav-item myli">
               <a class="nav-link" href="#About">About</a>
             </li>
             <!--  -->
             <!--  -->
-            <li class="nav-item">
+            <li class="nav-item myli">
               <a class="nav-link" href="#Services">Services</a>
             </li>
             <!--  -->
             <!--  -->
-            <li class="nav-item">
+            <li class="nav-item myli">
               <a class="nav-link" href="#Portfolio">Portfolio</a>
             </li>
             <!--  -->
@@ -209,16 +214,12 @@
         </div>
 
         <div class="image">
-          <img
-            src="./img/me.png"
-            class=""
-            style="width: 500px; height: 500px"
-            alt=""
-          />
+          <img src="./img/me.png" class="img" alt="" />
         </div>
       </div>
     </section>
     <!--  end section -->
+    <div class="zic"></div>
     <!-- start about -->
     <div class="about container-fluid" id="About">
       <div class="container child-about d-flex flex-column">
@@ -229,7 +230,7 @@
               <div class="swiper-wrapper">
                 <!-- start -->
                 <div class="swiper-slide main-box">
-                  <div class="Box">
+                  <div class="Box glare">
                     <h2>Front End</h2>
                     <p>
                       I can to build the front end page applications of your
@@ -252,7 +253,7 @@
                 <!--end-->
                 <!-- start -->
                 <div class="swiper-slide main-box">
-                  <div class="Box">
+                  <div class="Box glare">
                     <h2>Flutter development</h2>
                     <p>we can build moile applications by flutter tool</p>
                     <div class="links">
@@ -271,7 +272,7 @@
                 <!--end-->
                 <!-- start -->
                 <div class="swiper-slide main-box">
-                  <div class="Box">
+                  <div class="Box glare">
                     <h2>Front End Developer</h2>
                     <p>
                       I can building the front end of your site with the highest
@@ -293,7 +294,7 @@
                 <!--end-->
                 <!-- start -->
                 <div class="swiper-slide main-box">
-                  <div class="Box">
+                  <div class="Box glare">
                     <h2>Front End Developer</h2>
                     <p>
                       I can building the front end of your site with the highest
@@ -321,7 +322,10 @@
             <div class="Progress my-3">
               <div class="info d-flex justify-content-between">
                 <h3>HTML</h3>
-                <span>75%</span>
+                <div class="d-flex">
+                  <span data-count="75"></span>
+                  <span>%</span>
+                </div>
               </div>
               <div class="position-relative">
                 <span
@@ -335,7 +339,10 @@
             <div class="Progress my-3">
               <div class="info d-flex justify-content-between">
                 <h3>CSS</h3>
-                <span>80%</span>
+                <div class="d-flex">
+                  <span data-count="80"></span>
+                  <span>%</span>
+                </div>
               </div>
               <div class="position-relative">
                 <span
@@ -349,7 +356,10 @@
             <div class="Progress my-3">
               <div class="info d-flex justify-content-between">
                 <h3>JS</h3>
-                <span>50%</span>
+                <div class="d-flex">
+                  <span data-count="50"></span>
+                  <span>%</span>
+                </div>
               </div>
               <div class="position-relative">
                 <span
@@ -363,7 +373,10 @@
             <div class="Progress my-3">
               <div class="info d-flex justify-content-between">
                 <h3>SCSS</h3>
-                <span>60%</span>
+                <div class="d-flex">
+                  <span data-count="60"></span>
+                  <span>%</span>
+                </div>
               </div>
               <div class="position-relative">
                 <span
@@ -376,17 +389,17 @@
           </div>
         </div>
         <div class="col2">
-          <div class="box tilt box-1">
+          <div class="box tiltG box-1">
             <h1>02</h1>
             <h2>Years Experience</h2>
           </div>
           <!--  -->
-          <div class="box tilt box-2">
+          <div class="box tiltG box-2">
             <h1>+10</h1>
             <h2>Client</h2>
           </div>
           <!--  -->
-          <div class="box tilt box-3">
+          <div class="box tiltG box-3">
             <h1>03</h1>
             <h2>project</h2>
           </div>
@@ -398,7 +411,32 @@
     <!-- start services -->
 
     <!-- Swiper -->
-    <div class="services"></div>
+    <div class="services" id="Services">
+      <div class="swiper myEffect">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <a
+              href="https://yousefmohammedabokassem.github.io/temlate-2/html/template-2.html"
+              ><img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://yousefmohammedabokassem.github.io/template_3/"
+              ><img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://yousefmohammedabokassem.github.io/Template_4/">
+              <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
     <!-- Swiper JS -->
 
     <!-- end services -->
