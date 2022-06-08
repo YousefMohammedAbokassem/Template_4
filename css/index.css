@@ -2,7 +2,7 @@
   --main-color: #4937f0;
   --second-color: #9244f0;
   --spin-color: #111;
-  --spinBackground-color:#fff;
+  --spinBackground-color: #fff;
   --text-color: #fff;
   --dark-bg: #160a2d;
   --light-bg: #211141;
@@ -577,7 +577,7 @@ nav .clickNav .icons .icon a i:hover {
   -webkit-transition: var(--main-transition);
   transition: var(--main-transition);
   position: relative;
-  animation: image 2.5s infinite alternate-reverse linear;
+  animation: image 2.5s infinite alternate-reverse ease;
 }
 
 .main-section > div:first-child .image .img {
@@ -1001,8 +1001,48 @@ nav .clickNav .icons .icon a i:hover {
           transform: rotateY(-180deg);
 }
 
+.services .rotate {
+  margin: auto;
+}
+
+.services .rotate .card1 {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+}
+
+.services .rotate:hover .card1 {
+  -webkit-transform: rotateY(95deg);
+          transform: rotateY(95deg);
+}
+
 .services .Card {
   margin: auto;
+}
+
+.services .CARD {
+  margin: auto;
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: relative;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  left: 0px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: perspective(1000px);
+          transform: perspective(1000px);
+  transition: 1s;
+}
+
+.services .CARD:hover .card1 {
+  -webkit-transform: rotateY(96deg);
+          transform: rotateY(96deg);
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+  -webkit-transform: rotateZ(18deg);
+          transform: rotateZ(18deg);
 }
 
 .services .card1 {
@@ -1016,6 +1056,13 @@ nav .clickNav .icons .icon a i:hover {
       -ms-flex-align: center;
           align-items: center;
   background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+  width: 300px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  height: 300px;
+  position: absolute;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
 }
 
 .services .card2 {
@@ -1030,6 +1077,10 @@ nav .clickNav .icons .icon a i:hover {
       -ms-flex-align: center;
           align-items: center;
   background-image: linear-gradient(135deg, var(--main-color), var(--second-color));
+  width: 300px;
+  height: 300px;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .services .swiper {

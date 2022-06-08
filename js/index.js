@@ -223,7 +223,6 @@ let imageAbout = document.querySelector(".about .image");
 let spans = document.querySelectorAll(".spanProgress");
 let span = document.querySelectorAll(".Progress .info span:first-child");
 
-console.log(span);
 let stat = false;
 
 let about = document.querySelector(".about");
@@ -234,7 +233,6 @@ let myButton = document.querySelector(".myButton");
 // services
 let services = document.querySelector(".services");
 window.onscroll = function () {
-  console.log(window.scrollY);
   if (window.scrollY > mainNav.offsetTop + 50) {
     mainNav.style.boxShadow = " 0 5px 7px rgb(0 0 0 / 13%)";
   } else {
@@ -282,7 +280,7 @@ window.onscroll = function () {
           if (el.textContent === goal) {
             clearTimeout(count);
           }
-        }, 1000 / goal);
+        }, 500 / goal);
       });
       stat = true;
     }
@@ -312,9 +310,10 @@ window.onscroll = function () {
     });
     myLinks[0].classList.add("links");
     //
-  }
-  //
-  if (window.scrollY >= about.offsetTop - 300) {
+  } else if (
+    window.scrollY >= about.offsetTop - 300 &&
+    window.scrollY < services.offsetTop - 300
+  ) {
     let Hover = document.querySelector(".Hover");
     Hover.style.cssText = "left: 105px; ";
     //
@@ -324,8 +323,7 @@ window.onscroll = function () {
     });
     myLinks[1].classList.add("links");
     //
-  }
-  if (window.scrollY >= services.offsetTop - 300) {
+  } else if (window.scrollY >= services.offsetTop - 300) {
     let Hover = document.querySelector(".Hover");
     Hover.style.cssText = "left: 194px; width: 83px; ";
     //
@@ -397,9 +395,7 @@ var swiper = new Swiper(".myEffect", {
 let myanim = document.querySelector(".animaitionload");
 let myanimLeft = document.querySelector(".animaitionload .Left");
 let myanimRight = document.querySelector(".animaitionload .Right");
-console.log(myanim);
-console.log(myanimLeft);
-console.log(myanimRight);
+
 document.addEventListener("DOMContentLoaded", function () {
   // On DOM Load initiate the effect
   if (textArray.length) {
@@ -410,4 +406,3 @@ document.addEventListener("DOMContentLoaded", function () {
   myanimRight.style.right = "-2000px";
   //
 });
-

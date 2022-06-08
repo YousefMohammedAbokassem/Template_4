@@ -386,7 +386,7 @@ nav {
     .image {
       transition: var(--main-transition);
       position: relative;
-      animation: image 2.5s infinite alternate-reverse linear;
+      animation: image 2.5s infinite alternate-reverse ease;
       .img {
         border-radius: 50%;
         border: 3px solid var(--main-color);
@@ -406,7 +406,6 @@ nav {
       line-height: 30px;
       font-size: 20px;
       text-transform: capitalize;
-
       @include media("mobile") {
         margin: 55px 65px 34px;
         line-height: 35px;
@@ -651,19 +650,58 @@ nav {
 // start services
 .services {
   padding: var(--padding-top) 0px;
-  @include cardhover(Card, 180deg, "y");
   @include gridcol(300px, 40px);
+  @include cardhover(Card, 180deg, "y");
+  .rotate {
+    margin: auto;
+    .card1 {
+      transition: 1s;
+      transform-origin: center left;
+    }
+    .card2 {
+    }
+    &:hover .card1  {
+      transform: rotateY(95deg);
+    }
+  }
   .Card {
     margin: auto;
+    .card1 {
+    }
+    .card2 {
+    }
+  }
+  .CARD {
+    margin: auto;
+    transition: 1s;
+    position: relative;
+    transform: rotateY(0deg);
+    left: 0px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: 1s;
+    &:hover .card1 {
+      transform: rotateY(96deg);
+      transform-origin: center left;
+      transform: rotateZ(18deg);
+    }
   }
   .card1 {
     @include flexcenter;
     @include gradient(45deg);
+    width: 300px;
+    transition: 1s;
+    height: 300px;
+    position: absolute;
+    transform-origin: left center;
   }
   .card2 {
     display: flex;
     @include flexcenter;
     @include gradient(135deg);
+    width: 300px;
+    height: 300px;
+    transition: 1s;
   }
   background-color: var(--light-bg);
   .swiper {
@@ -684,11 +722,11 @@ nav {
   }
 }
 // end services
-@include keyF(image){
-  from{
+@include keyF(image) {
+  from {
     transform: translateX(-8px);
-  }to{
-
+  }
+  to {
     transform: translateX(8px);
   }
 }

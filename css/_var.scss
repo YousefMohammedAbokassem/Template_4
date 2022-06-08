@@ -3,8 +3,8 @@
   --second-color: #9244f0;
 
   --spin-color: #111;
-  --spinBackground-color:#fff;
-  
+  --spinBackground-color: #fff;
+
   --text-color: #fff;
   --dark-bg: #160a2d;
   --light-bg: #211141;
@@ -22,11 +22,10 @@
   color: #0ba360;
   background-color: rgb(47, 84, 47);
   background-color: rgba(166, 193, 166, 0.88);
-  color:#3cba92
+  color: #3cba92;
   //
 }
 // background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-
 
 // background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 //  media queries
@@ -189,7 +188,11 @@ $them: "dark";
       width: 100%;
       height: $height;
       background-size: $height $height;
-      background-image: linear-gradient(135deg, var(--light-bg) 25%, transparent 25%),
+      background-image: linear-gradient(
+          135deg,
+          var(--light-bg) 25%,
+          transparent 25%
+        ),
         linear-gradient(225deg, var(--light-bg) 25%, transparent 25%);
     }
   }
@@ -217,5 +220,4 @@ $them: "dark";
     }
   }
 }
-
 // container
