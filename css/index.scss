@@ -19,6 +19,41 @@ body {
     width: 100%;
   }
 }
+.myspiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 700000;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  position: fixed;
+  span {
+    @include circle(100px);
+    position: relative;
+    background-image: linear-gradient(to left, transparent 50%, #009688 50%);
+    animation: spinner 1.5s ease  infinite forwards;
+    &::before {
+      content: "";
+      left: 10%;
+      top: 5px;
+      @include circle(90px);
+      background: black;
+      position: absolute;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      @include circle(20px);
+      background: #009688;
+      transform: translateX(-50%);
+      left: 50%;
+      top: -10px;
+      box-shadow: 0 0 5px #009688, 0 0 10px #009688, 0 0 15px #009688;
+    }
+  }
+}
 .boxOver {
   position: fixed;
   left: 0px;
@@ -511,6 +546,13 @@ nav {
       &:hover {
         transform: scale(1.2);
       }
+      a {
+        &.CV {
+          text-decoration: none;
+          color: #fff;
+          // font-weight: bold;
+        }
+      }
     }
   }
 }
@@ -853,6 +895,14 @@ nav {
   50%,
   99% {
     background-color: transparent;
+  }
+}
+@include keyF(spinner) {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 @include container();

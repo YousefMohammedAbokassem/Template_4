@@ -535,7 +535,7 @@ var swiper = new Swiper(".myEffect", {
 let myanim = document.querySelector(".animaitionload");
 let myanimLeft = document.querySelector(".animaitionload .Left");
 let myanimRight = document.querySelector(".animaitionload .Right");
-
+let mySpin = document.querySelector(".myspiner");
 document.addEventListener("DOMContentLoaded", function () {
   // On DOM Load initiate the effect
   if (textArray.length) {
@@ -545,4 +545,5 @@ document.addEventListener("DOMContentLoaded", function () {
   myanimLeft.style.left = "-2000px";
   myanimRight.style.right = "-2000px";
   //
+  mySpin.style.display = "none";
 });

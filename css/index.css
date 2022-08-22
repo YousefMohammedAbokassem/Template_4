@@ -39,6 +39,49 @@ body {
   width: 100%;
 }
 
+.myspiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 700000;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  position: fixed;
+}
+.myspiner span {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  background-image: linear-gradient(to left, transparent 50%, #009688 50%);
+  -webkit-animation: spinner 1.5s ease infinite forwards;
+          animation: spinner 1.5s ease infinite forwards;
+}
+.myspiner span::before {
+  content: "";
+  left: 10%;
+  top: 5px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: black;
+  position: absolute;
+}
+.myspiner span::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #009688;
+  transform: translateX(-50%);
+  left: 50%;
+  top: -10px;
+  box-shadow: 0 0 5px #009688, 0 0 10px #009688, 0 0 15px #009688;
+}
+
 .boxOver {
   position: fixed;
   left: 0px;
@@ -561,6 +604,10 @@ nav .clickNav .icons .icon a i:hover {
 .main-section > div:first-child button:hover {
   transform: scale(1.2);
 }
+.main-section > div:first-child button a.CV {
+  text-decoration: none;
+  color: #fff;
+}
 
 .about {
   transition: var(--main-transition);
@@ -920,6 +967,22 @@ nav .clickNav .icons .icon a i:hover {
   }
   50%, 99% {
     background-color: transparent;
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 @media (min-width: 768px) {
