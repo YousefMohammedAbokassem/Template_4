@@ -31,8 +31,14 @@ $(document).ready(function () {
   //
   let myButton = document.getElementById("buttonIcon");
   let Rows = document.querySelectorAll(".Row");
-  let clickNav = document.getElementById("clickNav");
+  let clickNav = document.getElementById("clickNav"),
+    clickul = document.querySelectorAll(".clickul a");
 
+  clickul.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      myButton.click();
+    });
+  });
   myButton.addEventListener("click", function (e) {
     if (!myButton.classList.contains("show")) {
       Rows[0].style.transform = "rotate(45deg)";
@@ -236,79 +242,79 @@ let services = document.querySelector(".services");
 // start portfolio
 const lis = document.querySelectorAll(".portfolio ul li"),
   images = document.querySelectorAll(".portfolio .all"),
-  imgs = document.querySelectorAll(".portfolio .all img");
-// overLay = document.querySelectorAll(".overLay");
+  imgs = document.querySelectorAll(".portfolio .all img"),
+  portfolio = document.getElementById("Portfolio");
 
-imgs.forEach((img) => {
-  // console.log(img);
-  img.addEventListener("click", (e) => {
-    // console.log(img);
-    // overlay//
-    let over = document.createElement("div");
-    over.className = "overLay";
-    document.body.prepend(over);
-    //  popup
-    let popup = document.createElement("img");
-    console.log(e.target.src);
-    popup.setAttribute("src", e.target.src);
+// imgs.forEach((img) => {
+//   // console.log(img);
+//   img.addEventListener("click", (e) => {
+//     // console.log(img);
+//     // overlay//
+//     let over = document.createElement("div");
+//     over.className = "overLay";
+//     document.body.prepend(over);
+//     //  popup
+//     let popup = document.createElement("img");
+//     console.log(e.target.src);
+//     popup.setAttribute("src", e.target.src);
 
-    popup.className = "imgOver";
-    over.prepend(popup);
-    //
-    let span = document.createElement("span");
-    let text = document.createTextNode("X");
-    span.style.cssText =
-      "position: absolute;z-index: 5002;   background: #111;  color: white; left: 50%; top: 20%;padding: 10px;border-radius: 50%; cursor:pointer;";
-    span.appendChild(text);
-    over.append(span);
-    span.addEventListener("click", () => {
-      over.remove();
-    });
-  });
-});
+//     popup.className = "imgOver";
+//     over.prepend(popup);
+//     //
+//     let span = document.createElement("span");
+//     let text = document.createTextNode("X");
+//     span.style.cssText =
+//       "position: absolute;z-index: 5002;   background: #111;  color: white; left: 50%; top: 20%;padding: 10px;border-radius: 50%; cursor:pointer;";
+//     span.appendChild(text);
+//     over.append(span);
+//     span.addEventListener("click", () => {
+//       over.remove();
+//     });
+//   });
+// });
 lis.forEach((li) => {
   li.addEventListener("click", (element) => {
     lis.forEach((li) => {
       li.classList.remove("active");
     });
     element.target.classList.add("active");
-    console.log(element.target.classList.contains("design"));
-    if (element.target.classList.contains("design")) {
+    // console.log(element.target.classList.contains("html"));
+    if (element.target.classList.contains("html")) {
       images.forEach((image) => {
-        if (image.classList.contains("design")) {
+        if (image.classList.contains("html")) {
           image.style.cssText = "display:block;";
         } else {
           image.style.cssText = "display:none;";
         }
       });
     }
-    if (element.target.classList.contains("code")) {
+    if (element.target.classList.contains("scss")) {
       images.forEach((image) => {
-        if (image.classList.contains("code")) {
+        if (image.classList.contains("scss")) {
           image.style.cssText = "display:block;";
         } else {
           image.style.cssText = "display:none;";
         }
       });
     }
-    if (element.target.classList.contains("photo")) {
+    if (element.target.classList.contains("boot")) {
       images.forEach((image) => {
-        if (image.classList.contains("photo")) {
+        if (image.classList.contains("boot")) {
           image.style.cssText = "display:block;";
         } else {
           image.style.cssText = "display:none;";
         }
       });
     }
-    if (element.target.classList.contains("app")) {
-      images.forEach((image) => {
-        if (image.classList.contains("app")) {
-          image.style.cssText = "display:block;";
-        } else {
-          image.style.cssText = "display:none;";
-        }
-      });
-    }
+    // if (element.target.classList.contains("app")) {
+    //   images.forEach((image) => {
+    //     if (image.classList.contains("app")) {
+    //       image.style.cssText = "display:block;";
+    //     } else {
+    //       image.style.cssText = "display:none;";
+    //     }
+    //   });
+    // }
     if (element.target.classList.contains("All")) {
       images.forEach((image) => {
         if (image.classList.contains("all")) {
@@ -318,6 +324,38 @@ lis.forEach((li) => {
         }
       });
     }
+  });
+});
+
+let imagesPortfolio = document.querySelectorAll(" .portfolio .all .image img");
+imagesPortfolio.forEach((image) => {
+  image.addEventListener("click", (e) => {
+    // console.log(e.target)
+    // make box
+    let div = document.createElement("div");
+    div.classList = "boxOver";
+    // make over
+    let over = document.createElement("div");
+    over.classList = "overLay";
+    div.appendChild(over);
+    //
+    let imageBox = document.createElement("div");
+    imageBox.classList = "imageBox";
+    let image = document.createElement("img");
+    image.setAttribute("src", e.target.src);
+    let span = document.createElement("span");
+    let spanText = document.createTextNode("X");
+    span.title = "close the image";
+    span.appendChild(spanText);
+    imageBox.appendChild(image);
+    imageBox.appendChild(span);
+    div.appendChild(imageBox);
+
+    span.addEventListener("click", (e) => {
+      div.remove();
+    });
+    //
+    document.body.prepend(div);
   });
 });
 // end portfolio
@@ -412,7 +450,10 @@ window.onscroll = function () {
     });
     myLinks[1].classList.add("links");
     //
-  } else if (window.scrollY >= services.offsetTop - 300) {
+  } else if (
+    window.scrollY >= services.offsetTop - 300 &&
+    window.scrollY < portfolio.offsetTop - 300
+  ) {
     let Hover = document.querySelector(".Hover");
     Hover.style.cssText = "left: 194px; width: 83px; ";
     //
@@ -421,9 +462,19 @@ window.onscroll = function () {
       a.classList.remove("links");
     });
     myLinks[2].classList.add("links");
-  }
-  // // end nav scroll
+  } else if (window.scrollY >= portfolio.offsetTop - 300) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left: 306px; width: 84px;";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[3].classList.add("links");
+  } // // end nav scroll
 };
+
+// portfolio
 // button
 myButton.addEventListener("click", () => {
   window.scrollTo({

@@ -9,6 +9,95 @@ body {
 .bt {
   color: var(--text-color);
 }
+.link {
+  position: absolute;
+  width: 50px;
+  margin-bottom: 90px;
+
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.boxOver {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  // background-color: #1111113d;
+  z-index: 100001;
+  .overLay {
+    height: 100%;
+    width: 100%;
+    background-color: #1111113d;
+    z-index: 100002;
+  }
+  .imageBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border: 10px solid transparent;
+    border-radius: 87px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #eee;
+    img {
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+    }
+    span {
+      background: black;
+      position: absolute;
+      left: 61px;
+      top: 2px;
+      user-select: none;
+      font-weight: bold;
+      padding: 7px;
+      border-radius: 50%;
+      @include flexcenter();
+      cursor: pointer;
+      &::before {
+        content: "close the image";
+        position: absolute;
+        opacity: 0;
+        left: -2px;
+        width: 129px;
+        bottom: -36px;
+        background-color: black;
+        color: #fff;
+        padding: 0px 5px;
+        transition: 0.5s;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        border: 14px solid transparent;
+        left: -2px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transition: 0.5s;
+        top: 65%;
+        transition: 0.5s;
+
+        border-color: transparent transparent #b6b6b6 transparent;
+      }
+      &:hover::after {
+        opacity: 1;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+  }
+}
 * {
   padding: 0px;
   margin: 0px;
@@ -576,25 +665,17 @@ nav {
 
 // end about
 .main-box {
-  width: 300px !important;
-  height: 300px !important;
+  width: 400px !important;
+  height: 400px !important;
   border-radius: 30px;
-  
 }
-.main-box:first-child {
-  background-image: linear-gradient(45deg, #3cba92, #0ba360);
-}
-.main-box:nth-child(2) {
-  background-image: linear-gradient(45deg, #0093e9, #80d0c7);
-}
-.main-box:nth-child(3) {
-  background-image: linear-gradient(
-    45deg,
-    var(--grad2-clr-left),
-    var(--grad2-clr-right)
-  );
-}
-.main-box:nth-child(4) {
+.main-box:first-child,
+.main-box:nth-child(2),
+.main-box:nth-child(3),
+.main-box:nth-child(4),
+.main-box:nth-child(5),
+.main-box:nth-child(6),
+.main-box:nth-child(7) {
   background-image: linear-gradient(45deg, rgb(44, 44, 44), #666666);
 }
 .Box {
@@ -603,15 +684,13 @@ nav {
   align-items: center;
   flex-direction: column;
   height: 100%;
-  h2 {
-    text-align: center;
-    color: var(--text-color);
-    font-weight: bold;
-    font-size: 30px;
-  }
-  p {
-    text-align: center;
-    margin: 15px;
+  .image {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   .links {
     display: flex;
@@ -690,33 +769,64 @@ nav {
     }
   }
   .row {
+    > div {
+      counter-increment: counter;
+      margin: 10px 0px;
+    }
+
     .image {
       border: 4px solid transparent;
       position: relative;
       overflow: hidden;
       border-radius: 2.2rem;
-      cursor: pointer;
       box-shadow: 0px 0px 3px var(--roundedLink-color);
       img {
         max-width: 100%;
       }
       &::before {
-        content: "Application";
+        content: "template_" counter(counter);
         position: absolute;
         pointer-events: none;
-        left: -100%;
-        top: 0px;
-        height: 100%;
-        width: 100%;
-        background-color: var(--icons-color);
-        opacity: 0.8;
-        color: var(--theme-text);
-        font-size: 20px;
         transition: 0.5s;
+        left: -100px;
+        background: red;
+        @include circle(100px);
         @include flexcenter();
+        background: #0000004d;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 40px;
+        border: 31px solid transparent;
+        left: -34px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transition: 0.5s;
+        top: 82%;
+        border-color: transparent transparent transparent #00000085;
+      }
+      span {
+        bottom: 29px;
+        left: -119px;
+        text-transform: capitalize;
+        position: absolute;
+        @include flexcenter();
+        transition: 0.5s;
+        padding: 0 2px 0 6px;
+        color: #eee;
+        background: #00000085;
       }
       &:hover::before {
         left: 0px;
+      }
+      &:hover::after {
+        left: 132px;
+      }
+      &:hover span {
+        left: 15px;
       }
     }
   }

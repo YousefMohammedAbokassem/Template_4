@@ -29,6 +29,99 @@ body {
   color: var(--text-color);
 }
 
+.link {
+  position: absolute;
+  width: 50px;
+  margin-bottom: 90px;
+}
+.link img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.boxOver {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 100001;
+}
+.boxOver .overLay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 17, 17, 0.2392156863);
+  z-index: 100002;
+}
+.boxOver .imageBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border: 10px solid transparent;
+  border-radius: 87px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #eee;
+}
+.boxOver .imageBox img {
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+.boxOver .imageBox span {
+  background: black;
+  position: absolute;
+  left: 61px;
+  top: 2px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-weight: bold;
+  padding: 7px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.boxOver .imageBox span::before {
+  content: "close the image";
+  position: absolute;
+  opacity: 0;
+  left: -2px;
+  width: 129px;
+  bottom: -36px;
+  background-color: black;
+  color: #fff;
+  padding: 0px 5px;
+  transition: 0.5s;
+}
+.boxOver .imageBox span::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  left: -2px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.5s;
+  top: 65%;
+  transition: 0.5s;
+  border-color: transparent transparent #b6b6b6 transparent;
+}
+.boxOver .imageBox span:hover::after {
+  opacity: 1;
+}
+.boxOver .imageBox span:hover::before {
+  opacity: 1;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -621,24 +714,18 @@ nav .clickNav .icons .icon a i:hover {
 }
 
 .main-box {
-  width: 300px !important;
-  height: 300px !important;
+  width: 400px !important;
+  height: 400px !important;
   border-radius: 30px;
 }
 
-.main-box:first-child {
-  background-image: linear-gradient(45deg, #3cba92, #0ba360);
-}
-
-.main-box:nth-child(2) {
-  background-image: linear-gradient(45deg, #0093e9, #80d0c7);
-}
-
-.main-box:nth-child(3) {
-  background-image: linear-gradient(45deg, var(--grad2-clr-left), var(--grad2-clr-right));
-}
-
-.main-box:nth-child(4) {
+.main-box:first-child,
+.main-box:nth-child(2),
+.main-box:nth-child(3),
+.main-box:nth-child(4),
+.main-box:nth-child(5),
+.main-box:nth-child(6),
+.main-box:nth-child(7) {
   background-image: linear-gradient(45deg, rgb(44, 44, 44), #666666);
 }
 
@@ -649,15 +736,13 @@ nav .clickNav .icons .icon a i:hover {
   flex-direction: column;
   height: 100%;
 }
-.Box h2 {
-  text-align: center;
-  color: var(--text-color);
-  font-weight: bold;
-  font-size: 30px;
+.Box .image {
+  width: 100%;
+  height: 100%;
 }
-.Box p {
-  text-align: center;
-  margin: 15px;
+.Box .image img {
+  width: 100%;
+  height: 100%;
 }
 .Box .links {
   display: flex;
@@ -735,36 +820,70 @@ nav .clickNav .icons .icon a i:hover {
 .portfolio ul li:hover {
   color: var(--roundedLink-color);
 }
+.portfolio .row > div {
+  counter-increment: counter;
+  margin: 10px 0px;
+}
 .portfolio .row .image {
   border: 4px solid transparent;
   position: relative;
   overflow: hidden;
   border-radius: 2.2rem;
-  cursor: pointer;
   box-shadow: 0px 0px 3px var(--roundedLink-color);
 }
 .portfolio .row .image img {
   max-width: 100%;
 }
 .portfolio .row .image::before {
-  content: "Application";
+  content: "template_" counter(counter);
   position: absolute;
   pointer-events: none;
-  left: -100%;
-  top: 0px;
-  height: 100%;
-  width: 100%;
-  background-color: var(--icons-color);
-  opacity: 0.8;
-  color: var(--theme-text);
-  font-size: 20px;
   transition: 0.5s;
+  left: -100px;
+  background: red;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 0, 0, 0.3019607843);
+}
+.portfolio .row .image::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 40px;
+  border: 31px solid transparent;
+  left: -34px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.5s;
+  top: 82%;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.5215686275);
+}
+.portfolio .row .image span {
+  bottom: 29px;
+  left: -119px;
+  text-transform: capitalize;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  padding: 0 2px 0 6px;
+  color: #eee;
+  background: rgba(0, 0, 0, 0.5215686275);
 }
 .portfolio .row .image:hover::before {
   left: 0px;
+}
+.portfolio .row .image:hover::after {
+  left: 132px;
+}
+.portfolio .row .image:hover span {
+  left: 15px;
 }
 
 .portfolio {
