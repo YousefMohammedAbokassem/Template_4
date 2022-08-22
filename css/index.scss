@@ -6,7 +6,9 @@ body {
   overflow-x: hidden;
   position: relative;
 }
-
+.bt {
+  color: var(--text-color);
+}
 * {
   padding: 0px;
   margin: 0px;
@@ -230,6 +232,7 @@ nav {
     }
   }
 }
+
 .mainNav {
   position: fixed;
   width: 100%;
@@ -650,78 +653,78 @@ nav {
 // start services
 .services {
   padding: var(--padding-top) 0px;
-  @include gridcol(300px, 40px);
-  @include cardhover(Card, 180deg, "y");
-  .rotate {
-    margin: auto;
-    .card1 {
-      transition: 1s;
-      transform-origin: center left;
-    }
-    .card2 {
-    }
-    &:hover .card1  {
-      transform: rotateY(95deg);
-    }
-  }
-  .Card {
-    margin: auto;
-    .card1 {
-    }
-    .card2 {
-    }
-  }
-  .CARD {
-    margin: auto;
-    transition: 1s;
-    position: relative;
-    transform: rotateY(0deg);
-    left: 0px;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    transition: 1s;
-    &:hover .card1 {
-      transform: rotateY(96deg);
-      transform-origin: center left;
-      transform: rotateZ(18deg);
-    }
-  }
-  .card1 {
-    @include flexcenter;
-    @include gradient(45deg);
-    width: 300px;
-    transition: 1s;
-    height: 300px;
-    position: absolute;
-    transform-origin: left center;
-  }
-  .card2 {
-    display: flex;
-    @include flexcenter;
-    @include gradient(135deg);
-    width: 300px;
-    height: 300px;
-    transition: 1s;
-  }
   background-color: var(--light-bg);
-  .swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 300px;
-      height: 300px;
-      img {
-        display: block;
-        width: 100%;
-        @include shadow();
-      }
+  .container {
+    h1 {
+      color: var(--text-color);
     }
   }
 }
 // end services
+// start Portfolio
+.portfolio {
+  background-color: var(--section-color);
+  overflow: hidden;
+  ul {
+    li {
+      padding: 0.5rem 1rem;
+      transition: 0.3s;
+      @media (max-width: 576px) {
+        padding: 0.5rem;
+      }
+      cursor: pointer;
+      color: var(--theme-text);
+      opacity: 0.9;
+      &.active {
+        @include gradient(45deg);
+        color: var(--text-color);
+        border-radius: 50px;
+        &:hover {
+          color: var(--linkText-color);
+        }
+      }
+      &:hover {
+        color: var(--roundedLink-color);
+      }
+    }
+  }
+  .row {
+    .image {
+      border: 4px solid transparent;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2.2rem;
+      cursor: pointer;
+      box-shadow: 0px 0px 3px var(--roundedLink-color);
+      img {
+        max-width: 100%;
+      }
+      &::before {
+        content: "Application";
+        position: absolute;
+        pointer-events: none;
+        left: -100%;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        background-color: var(--icons-color);
+        opacity: 0.8;
+        color: var(--theme-text);
+        font-size: 20px;
+        transition: 0.5s;
+        @include flexcenter();
+      }
+      &:hover::before {
+        left: 0px;
+      }
+    }
+  }
+}
+// end portfolio
+.portfolio {
+  background-color: var(--dark-bg);
+}
+// end Portfolio
 @include keyF(image) {
   from {
     transform: translateX(-8px);

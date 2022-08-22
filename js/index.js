@@ -232,6 +232,95 @@ let Projects = document.querySelector(".about .col2");
 let myButton = document.querySelector(".myButton");
 // services
 let services = document.querySelector(".services");
+// myportfolio
+// start portfolio
+const lis = document.querySelectorAll(".portfolio ul li"),
+  images = document.querySelectorAll(".portfolio .all"),
+  imgs = document.querySelectorAll(".portfolio .all img");
+// overLay = document.querySelectorAll(".overLay");
+
+imgs.forEach((img) => {
+  // console.log(img);
+  img.addEventListener("click", (e) => {
+    // console.log(img);
+    // overlay//
+    let over = document.createElement("div");
+    over.className = "overLay";
+    document.body.prepend(over);
+    //  popup
+    let popup = document.createElement("img");
+    console.log(e.target.src);
+    popup.setAttribute("src", e.target.src);
+
+    popup.className = "imgOver";
+    over.prepend(popup);
+    //
+    let span = document.createElement("span");
+    let text = document.createTextNode("X");
+    span.style.cssText =
+      "position: absolute;z-index: 5002;   background: #111;  color: white; left: 50%; top: 20%;padding: 10px;border-radius: 50%; cursor:pointer;";
+    span.appendChild(text);
+    over.append(span);
+    span.addEventListener("click", () => {
+      over.remove();
+    });
+  });
+});
+lis.forEach((li) => {
+  li.addEventListener("click", (element) => {
+    lis.forEach((li) => {
+      li.classList.remove("active");
+    });
+    element.target.classList.add("active");
+    console.log(element.target.classList.contains("design"));
+    if (element.target.classList.contains("design")) {
+      images.forEach((image) => {
+        if (image.classList.contains("design")) {
+          image.style.cssText = "display:block;";
+        } else {
+          image.style.cssText = "display:none;";
+        }
+      });
+    }
+    if (element.target.classList.contains("code")) {
+      images.forEach((image) => {
+        if (image.classList.contains("code")) {
+          image.style.cssText = "display:block;";
+        } else {
+          image.style.cssText = "display:none;";
+        }
+      });
+    }
+    if (element.target.classList.contains("photo")) {
+      images.forEach((image) => {
+        if (image.classList.contains("photo")) {
+          image.style.cssText = "display:block;";
+        } else {
+          image.style.cssText = "display:none;";
+        }
+      });
+    }
+    if (element.target.classList.contains("app")) {
+      images.forEach((image) => {
+        if (image.classList.contains("app")) {
+          image.style.cssText = "display:block;";
+        } else {
+          image.style.cssText = "display:none;";
+        }
+      });
+    }
+    if (element.target.classList.contains("All")) {
+      images.forEach((image) => {
+        if (image.classList.contains("all")) {
+          image.style.cssText = "display:block;";
+        } else {
+          image.style.cssText = "display:none;";
+        }
+      });
+    }
+  });
+});
+// end portfolio
 window.onscroll = function () {
   if (window.scrollY > mainNav.offsetTop + 50) {
     mainNav.style.boxShadow = " 0 5px 7px rgb(0 0 0 / 13%)";
