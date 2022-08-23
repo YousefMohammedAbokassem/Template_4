@@ -8,6 +8,10 @@ body {
 }
 .bt {
   color: var(--text-color);
+
+  &:hover {
+    color: var(--text-color);
+  }
 }
 .link {
   position: absolute;
@@ -27,19 +31,19 @@ body {
   z-index: 700000;
   height: 100vh;
   width: 100%;
-  background: black;
+  background: rgba(0, 0, 0, 0.97);
   position: fixed;
   span {
     @include circle(100px);
     position: relative;
     background-image: linear-gradient(to left, transparent 50%, #009688 50%);
-    animation: spinner 1.5s ease  infinite forwards;
+    animation: spinner 1.5s ease infinite forwards;
     &::before {
       content: "";
       left: 10%;
       top: 5px;
       @include circle(90px);
-      background: black;
+      background: rgba(0, 0, 0);
       position: absolute;
     }
     &::after {
@@ -74,6 +78,9 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
+    @include media("mobile") {
+      width: 90%;
+    }
     height: 500px;
     border: 10px solid transparent;
     border-radius: 87px;
@@ -304,7 +311,7 @@ nav {
     pointer-events: none;
     transition: var(--main-transition);
     .clickul {
-      height: 75%;
+      height: 100%;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -478,6 +485,9 @@ nav {
       h1 {
         @include textgdarient();
         font-weight: 300;
+        @include media("verySmall") {
+          padding: 0px 75px;
+        }
       }
       h2 {
         height: 70px;
@@ -500,8 +510,9 @@ nav {
         span.typing {
           animation: none;
         }
-        @include media("small") {
+        @include media("verySmall") {
           margin: 10px 35px;
+          padding: 0px 75px;
         }
       }
       @media (min-width: 991px) {
@@ -533,9 +544,10 @@ nav {
       line-height: 30px;
       font-size: 20px;
       text-transform: capitalize;
-      @include media("mobile") {
-        margin: 55px 65px 34px;
+      @include media("verySmall") {
+        margin: 100px 65px 34px;
         line-height: 35px;
+        padding: 0px 30px;
       }
     }
     button {
@@ -582,7 +594,7 @@ nav {
         }
       }
       .progresses {
-        width: 300px;
+        width: 100%;
         max-width: 300px;
         transition: var(--main-transition);
         .Progress {
@@ -710,6 +722,12 @@ nav {
   width: 400px !important;
   height: 400px !important;
   border-radius: 30px;
+  @include media("mobile") {
+    width: 350px !important;
+  }
+  @include media("verySmall") {
+    width: 250px !important;
+  }
 }
 .main-box:first-child,
 .main-box:nth-child(2),
@@ -718,7 +736,11 @@ nav {
 .main-box:nth-child(5),
 .main-box:nth-child(6),
 .main-box:nth-child(7) {
-  background-image: linear-gradient(45deg, rgb(44, 44, 44), #666666);
+  background-image: linear-gradient(
+    45deg,
+    var(--main-color) -23%,
+    var(--second-color)
+  );
 }
 .Box {
   display: flex;
@@ -743,7 +765,7 @@ nav {
     #See {
       color: var(--text-color);
       border: 3px solid var(--text-color);
-      padding: 5px 25px;
+      padding: 5px 20px;
       border-radius: 10px;
       transition: 0.4s;
       cursor: pointer;
@@ -808,12 +830,19 @@ nav {
       &:hover {
         color: var(--roundedLink-color);
       }
+      @include media("verySmall") {
+        margin: 10px 0;
+      }
+    }
+    @include media("verySmall") {
+      flex-wrap: wrap;
     }
   }
   .row {
     > div {
       counter-increment: counter;
       margin: 10px 0px;
+      @include flexcenter;
     }
 
     .image {

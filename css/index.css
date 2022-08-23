@@ -28,6 +28,9 @@ body {
 .bt {
   color: var(--text-color);
 }
+.bt:hover {
+  color: var(--text-color);
+}
 
 .link {
   position: absolute;
@@ -47,7 +50,7 @@ body {
   z-index: 700000;
   height: 100vh;
   width: 100%;
-  background: black;
+  background: rgba(0, 0, 0, 0.97);
   position: fixed;
 }
 .myspiner span {
@@ -66,7 +69,7 @@ body {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: black;
+  background: rgb(0, 0, 0);
   position: absolute;
 }
 .myspiner span::after {
@@ -107,6 +110,11 @@ body {
   border-radius: 87px;
   overflow: hidden;
   box-shadow: 0 0 20px #eee;
+}
+@media (max-width:767px) {
+  .boxOver .imageBox {
+    width: 90%;
+  }
 }
 .boxOver .imageBox img {
   max-width: 100%;
@@ -354,7 +362,7 @@ nav .clickNav {
   transition: var(--main-transition);
 }
 nav .clickNav .clickul {
-  height: 75%;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -531,6 +539,11 @@ nav .clickNav .icons .icon a i:hover {
   -webkit-text-fill-color: transparent;
   font-weight: 300;
 }
+@media (max-width:500px) {
+  .main-section > div:first-child .left h1 {
+    padding: 0px 75px;
+  }
+}
 .main-section > div:first-child .left h2 {
   height: 70px;
   font-size: 40px;
@@ -554,9 +567,10 @@ nav .clickNav .icons .icon a i:hover {
   -webkit-animation: none;
           animation: none;
 }
-@media (max-width:991px) {
+@media (max-width:500px) {
   .main-section > div:first-child .left h2 {
     margin: 10px 35px;
+    padding: 0px 75px;
   }
 }
 @media (min-width: 991px) {
@@ -589,10 +603,11 @@ nav .clickNav .icons .icon a i:hover {
   font-size: 20px;
   text-transform: capitalize;
 }
-@media (max-width:767px) {
+@media (max-width:500px) {
   .main-section > div:first-child p {
-    margin: 55px 65px 34px;
+    margin: 100px 65px 34px;
     line-height: 35px;
+    padding: 0px 30px;
   }
 }
 .main-section > div:first-child button {
@@ -638,7 +653,7 @@ nav .clickNav .icons .icon a i:hover {
   height: 500px;
 }
 .about .child-about .col1 .progresses {
-  width: 300px;
+  width: 100%;
   max-width: 300px;
   transition: var(--main-transition);
 }
@@ -765,6 +780,16 @@ nav .clickNav .icons .icon a i:hover {
   height: 400px !important;
   border-radius: 30px;
 }
+@media (max-width:767px) {
+  .main-box {
+    width: 350px !important;
+  }
+}
+@media (max-width:500px) {
+  .main-box {
+    width: 250px !important;
+  }
+}
 
 .main-box:first-child,
 .main-box:nth-child(2),
@@ -773,7 +798,7 @@ nav .clickNav .icons .icon a i:hover {
 .main-box:nth-child(5),
 .main-box:nth-child(6),
 .main-box:nth-child(7) {
-  background-image: linear-gradient(45deg, rgb(44, 44, 44), #666666);
+  background-image: linear-gradient(45deg, var(--main-color) -23%, var(--second-color));
 }
 
 .Box {
@@ -801,7 +826,7 @@ nav .clickNav .icons .icon a i:hover {
 .Box .links #See {
   color: var(--text-color);
   border: 3px solid var(--text-color);
-  padding: 5px 25px;
+  padding: 5px 20px;
   border-radius: 10px;
   transition: 0.4s;
   cursor: pointer;
@@ -867,9 +892,22 @@ nav .clickNav .icons .icon a i:hover {
 .portfolio ul li:hover {
   color: var(--roundedLink-color);
 }
+@media (max-width:500px) {
+  .portfolio ul li {
+    margin: 10px 0;
+  }
+}
+@media (max-width:500px) {
+  .portfolio ul {
+    flex-wrap: wrap;
+  }
+}
 .portfolio .row > div {
   counter-increment: counter;
   margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .portfolio .row .image {
   border: 4px solid transparent;

@@ -175,9 +175,9 @@ const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
 const textArray = [
-  "Front-End Developer",
-  "Flutter developrer",
-  "Back end developer",
+  "A Front-End Developer",
+  "A Student At (ASPU)",
+  "Learning Information Technology",
 ];
 const typingDelay = 200;
 const erasingDelay = 100;
