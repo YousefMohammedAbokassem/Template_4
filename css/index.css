@@ -25,6 +25,14 @@ body {
   position: relative;
 }
 
+.fromLeft,
+.fromRight,
+.fromTop,
+.fromBottom {
+  position: relative;
+  transition: 0.5s;
+}
+
 .bt {
   color: var(--text-color);
 }
@@ -35,11 +43,12 @@ body {
 .link {
   position: absolute;
   width: 50px;
-  margin-bottom: 90px;
+  margin-bottom: 81px;
 }
 .link img {
   max-width: 100%;
   width: 100%;
+  transition: 0.5s;
 }
 
 .myspiner {
@@ -114,6 +123,7 @@ body {
 @media (max-width:767px) {
   .boxOver .imageBox {
     width: 90%;
+    height: 300px;
   }
 }
 .boxOver .imageBox img {
@@ -537,7 +547,7 @@ nav .clickNav .icons .icon a i:hover {
   background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 300;
+  font-weight: bold;
 }
 @media (max-width:500px) {
   .main-section > div:first-child .left h1 {
@@ -925,7 +935,6 @@ nav .clickNav .icons .icon a i:hover {
   pointer-events: none;
   transition: 0.5s;
   left: -100px;
-  background: red;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -934,23 +943,9 @@ nav .clickNav .icons .icon a i:hover {
   align-items: center;
   background: rgba(0, 0, 0, 0.3019607843);
 }
-.portfolio .row .image::after {
-  content: "";
-  position: absolute;
-  width: 48px;
-  height: 40px;
-  border: 31px solid transparent;
-  left: -34px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  transition: 0.5s;
-  top: 82%;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.5215686275);
-}
 .portfolio .row .image span {
   bottom: 29px;
-  left: -119px;
+  left: -64%;
   text-transform: capitalize;
   position: absolute;
   display: flex;
@@ -961,6 +956,20 @@ nav .clickNav .icons .icon a i:hover {
   color: #eee;
   background: rgba(0, 0, 0, 0.5215686275);
 }
+.portfolio .row .image span::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 40px;
+  border: 31px solid transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.5s;
+  top: -77%;
+  left: 100%;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.5215686275);
+}
 .portfolio .row .image:hover::before {
   left: 0px;
 }
@@ -969,6 +978,16 @@ nav .clickNav .icons .icon a i:hover {
 }
 .portfolio .row .image:hover span {
   left: 15px;
+}
+@media (max-width:767px) {
+  .portfolio .row .image:hover .links .link img {
+    margin-left: 20px;
+  }
+}
+@media (max-width:500px) {
+  .portfolio .row .image:hover .links .link img {
+    margin-left: 68px;
+  }
 }
 
 .portfolio {

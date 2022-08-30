@@ -6,6 +6,13 @@ body {
   overflow-x: hidden;
   position: relative;
 }
+.fromLeft,
+.fromRight,
+.fromTop,
+.fromBottom {
+  position: relative;
+  transition: 0.5s;
+}
 .bt {
   color: var(--text-color);
 
@@ -16,11 +23,12 @@ body {
 .link {
   position: absolute;
   width: 50px;
-  margin-bottom: 90px;
+  margin-bottom: 81px;
 
   img {
     max-width: 100%;
     width: 100%;
+    transition: 0.5s;
   }
 }
 .myspiner {
@@ -80,6 +88,7 @@ body {
     width: 500px;
     @include media("mobile") {
       width: 90%;
+      height: 300px;
     }
     height: 500px;
     border: 10px solid transparent;
@@ -484,7 +493,7 @@ nav {
       margin: 0px auto;
       h1 {
         @include textgdarient();
-        font-weight: 300;
+        font-weight: bold;
         @include media("verySmall") {
           padding: 0px 75px;
         }
@@ -860,28 +869,14 @@ nav {
         pointer-events: none;
         transition: 0.5s;
         left: -100px;
-        background: red;
         @include circle(100px);
         @include flexcenter();
         background: #0000004d;
       }
-      &::after {
-        content: "";
-        position: absolute;
-        width: 48px;
-        height: 40px;
-        border: 31px solid transparent;
-        left: -34px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        transition: 0.5s;
-        top: 82%;
-        border-color: transparent transparent transparent #00000085;
-      }
+
       span {
         bottom: 29px;
-        left: -119px;
+        left: -64%;
         text-transform: capitalize;
         position: absolute;
         @include flexcenter();
@@ -889,6 +884,20 @@ nav {
         padding: 0 2px 0 6px;
         color: #eee;
         background: #00000085;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 48px;
+          height: 40px;
+          border: 31px solid transparent;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          transition: 0.5s;
+          top: -77%;
+          left: 100%;
+          border-color: transparent transparent transparent #00000085;
+        }
       }
       &:hover::before {
         left: 0px;
@@ -898,6 +907,15 @@ nav {
       }
       &:hover span {
         left: 15px;
+      }
+      &:hover .links .link img {
+        // margin-left: 50px;
+        @include media("mobile"){
+          margin-left: 20px;
+        }
+        @include media("verySmall"){
+         margin-left: 68px;
+        }
       }
     }
   }

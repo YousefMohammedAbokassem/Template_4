@@ -1,173 +1,190 @@
 // import * as all from "./scroll.js";
 
-$(document).ready(function () {
-  // nav
-  let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
-  myLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      myLinks.forEach((el) => {
-        el.classList.remove("links");
-      });
-      e.target.classList.add("links");
+// $(document).ready(function () {
+// nav
+let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+myLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    myLinks.forEach((el) => {
+      el.classList.remove("links");
     });
+    e.target.classList.add("links");
   });
+});
 
-  let Hover = document.querySelector(".Hover");
-  let mylis = document.querySelectorAll(".myli");
+let Hover = document.querySelector(".Hover");
+let mylis = document.querySelectorAll(".myli");
 
-  mylis[0].onclick = function () {
-    Hover.style.cssText = "left:14px;  ";
-  };
-  mylis[1].onclick = function () {
-    Hover.style.cssText = "left:105px; ";
-  };
-  mylis[2].onclick = function () {
-    Hover.style.cssText = "left: 194px; width: 83px; ";
-  };
-  mylis[3].onclick = function () {
-    Hover.style.cssText = "left: 306px; width: 84px;";
-  };
-
-  //
-  let myButton = document.getElementById("buttonIcon");
-  let Rows = document.querySelectorAll(".Row");
-  let clickNav = document.getElementById("clickNav"),
-    clickul = document.querySelectorAll(".clickul a");
-
-  clickul.forEach((a) => {
-    a.addEventListener("click", (e) => {
-      myButton.click();
-    });
+mylis[0].onclick = function () {
+  Hover.style.cssText = "left:14px;  ";
+  scrollTo({
+    top: document.getElementById("Home").offsetTop,
+    behavior: "smooth",
   });
-  myButton.addEventListener("click", function (e) {
-    if (!myButton.classList.contains("show")) {
-      Rows[0].style.transform = "rotate(45deg)";
-      Rows[0].style.width = "32px";
-      //
-      Rows[1].style.opacity = "0";
-      //
-      Rows[2].style.transform = "rotate(-45deg)";
-      Rows[2].style.width = "32px";
-      myButton.classList.add("show");
-      clickNav.style.pointerEvents = "auto";
-      clickNav.style.opacity = "1";
-      mainNav.style.backdropFilter = "none";
-      // myButton.classList.add("Show");
-    } else if (myButton.classList.contains("show")) {
-      Rows[0].style.transform = "rotate(0deg)";
-      Rows[0].style.width = "40px";
-      Rows[1].style.opacity = "1";
-      Rows[2].style.transform = "rotate(0deg)";
-      Rows[2].style.width = "40px";
-      clickNav.style.pointerEvents = "none";
-      clickNav.style.opacity = "0";
-      myButton.classList.remove("show");
-      mainNav.style.backdropFilter = "blur(20px)";
+};
+mylis[1].onclick = function () {
+  Hover.style.cssText = "left:105px; ";
+  scrollTo({
+    top: document.getElementById("About").offsetTop,
+    behavior: "smooth",
+  });
+};
+mylis[2].onclick = function () {
+  Hover.style.cssText = "left: 194px; width: 83px; ";
+  scrollTo({
+    top: document.getElementById("Services").offsetTop,
+    behavior: "smooth",
+  });
+};
+mylis[3].onclick = function () {
+  Hover.style.cssText = "left: 306px; width: 84px;";
+  scrollTo({
+    top: document.getElementById("Portfolio").offsetTop,
+    behavior: "smooth",
+  });
+};
+
+//
+let myButton = document.getElementById("buttonIcon");
+let Rows = document.querySelectorAll(".Row");
+let clickNav = document.getElementById("clickNav"),
+  clickul = document.querySelectorAll(".clickul a");
+
+clickul.forEach((a) => {
+  a.addEventListener("click", (e) => {
+    myButton.click();
+  });
+});
+myButton.addEventListener("click", function (e) {
+  if (!myButton.classList.contains("show")) {
+    Rows[0].style.transform = "rotate(45deg)";
+    Rows[0].style.width = "32px";
+    //
+    Rows[1].style.opacity = "0";
+    //
+    Rows[2].style.transform = "rotate(-45deg)";
+    Rows[2].style.width = "32px";
+    myButton.classList.add("show");
+    clickNav.style.pointerEvents = "auto";
+    clickNav.style.opacity = "1";
+    mainNav.style.backdropFilter = "none";
+    // myButton.classList.add("Show");
+  } else if (myButton.classList.contains("show")) {
+    Rows[0].style.transform = "rotate(0deg)";
+    Rows[0].style.width = "40px";
+    Rows[1].style.opacity = "1";
+    Rows[2].style.transform = "rotate(0deg)";
+    Rows[2].style.width = "40px";
+    clickNav.style.pointerEvents = "none";
+    clickNav.style.opacity = "0";
+    myButton.classList.remove("show");
+    mainNav.style.backdropFilter = "blur(20px)";
+  }
+});
+//
+// start option
+let myOption = document.querySelector(".option");
+let myGear = document.querySelector(".fa-gear");
+myGear.addEventListener("click", function () {
+  myOption.classList.toggle("active");
+  myGear.classList.toggle("fa-spin");
+});
+// end  option
+// start colors
+let spans = document.querySelectorAll(".option .color span ");
+// let color1 = localStorage.getItem("color1");
+// let color2 = localStorage.getItem("color2");
+let localColor = localStorage.getItem("color1");
+
+if (localColor !== null) {
+  document.documentElement.style.setProperty(
+    "--main-color",
+    localStorage.getItem("color1")
+  );
+  document.documentElement.style.setProperty(
+    "--second-color",
+    localStorage.getItem("color2")
+  );
+  document.documentElement.style.setProperty(
+    "--dark-bg",
+    localStorage.getItem("color3")
+  );
+  document.documentElement.style.setProperty(
+    "--light-bg",
+    localStorage.getItem("color4")
+  );
+  document.documentElement.style.setProperty(
+    "--text-color",
+    localStorage.getItem("color5")
+  );
+  document.documentElement.style.setProperty(
+    "--spin-color",
+    localStorage.getItem("color6")
+  );
+  document.documentElement.style.setProperty(
+    "--spinBackground-color",
+    localStorage.getItem("color7")
+  );
+  spans.forEach(function (span) {
+    span.classList.remove("active");
+
+    if (span.dataset.color1 === localColor) {
+      span.classList.add("active");
     }
   });
-  //
-  // start option
-  let myOption = document.querySelector(".option");
-  let myGear = document.querySelector(".fa-gear");
-  myGear.addEventListener("click", function () {
-    myOption.classList.toggle("active");
-    myGear.classList.toggle("fa-spin");
-  });
-  // end  option
-  // start colors
-  let spans = document.querySelectorAll(".option .color span ");
-  // let color1 = localStorage.getItem("color1");
-  // let color2 = localStorage.getItem("color2");
-  let localColor = localStorage.getItem("color1");
-  if (localColor !== null) {
+}
+spans.forEach(function (span) {
+  span.addEventListener("click", function (el) {
+    spans.forEach(function (e) {
+      // if (e.classList.contains("dark")) {
+      //   myGear.style.color = "#fff";
+      // }
+      e.classList.remove("active");
+    });
+    // span.target.classList.add("active");
+    el.target.classList.add("active");
+
+    // set item
+    localStorage.setItem("color1", el.target.dataset.color1);
+    localStorage.setItem("color2", el.target.dataset.color2);
+    localStorage.setItem("color3", el.target.dataset.color3);
+    localStorage.setItem("color4", el.target.dataset.color4);
+    localStorage.setItem("color5", el.target.dataset.color5);
+    localStorage.setItem("color6", el.target.dataset.color6);
+    localStorage.setItem("color7", el.target.dataset.color7);
+    // set item
     document.documentElement.style.setProperty(
       "--main-color",
-      localStorage.getItem("color1")
+      el.target.dataset.color1
     );
     document.documentElement.style.setProperty(
       "--second-color",
-      localStorage.getItem("color2")
+      el.target.dataset.color2
     );
     document.documentElement.style.setProperty(
       "--dark-bg",
-      localStorage.getItem("color3")
+      el.target.dataset.color3
     );
     document.documentElement.style.setProperty(
       "--light-bg",
-      localStorage.getItem("color4")
+      el.target.dataset.color4
     );
     document.documentElement.style.setProperty(
       "--text-color",
-      localStorage.getItem("color5")
+      el.target.dataset.color5
     );
     document.documentElement.style.setProperty(
       "--spin-color",
-      localStorage.getItem("color6")
+      el.target.dataset.color6
     );
     document.documentElement.style.setProperty(
       "--spinBackground-color",
-      localStorage.getItem("color7")
+      el.target.dataset.color7
     );
-    spans.forEach(function (span) {
-      span.classList.remove("active");
-
-      if (span.dataset.color1 === localColor) {
-        span.classList.add("active");
-      }
-    });
-  }
-  spans.forEach(function (span) {
-    span.addEventListener("click", function (el) {
-      spans.forEach(function (e) {
-        // if (e.classList.contains("dark")) {
-        //   myGear.style.color = "#fff";
-        // }
-        e.classList.remove("active");
-      });
-      // span.target.classList.add("active");
-      el.target.classList.add("active");
-
-      // set item
-      localStorage.setItem("color1", el.target.dataset.color1);
-      localStorage.setItem("color2", el.target.dataset.color2);
-      localStorage.setItem("color3", el.target.dataset.color3);
-      localStorage.setItem("color4", el.target.dataset.color4);
-      localStorage.setItem("color5", el.target.dataset.color5);
-      localStorage.setItem("color6", el.target.dataset.color6);
-      localStorage.setItem("color7", el.target.dataset.color7);
-      // set item
-      document.documentElement.style.setProperty(
-        "--main-color",
-        el.target.dataset.color1
-      );
-      document.documentElement.style.setProperty(
-        "--second-color",
-        el.target.dataset.color2
-      );
-      document.documentElement.style.setProperty(
-        "--dark-bg",
-        el.target.dataset.color3
-      );
-      document.documentElement.style.setProperty(
-        "--light-bg",
-        el.target.dataset.color4
-      );
-      document.documentElement.style.setProperty(
-        "--text-color",
-        el.target.dataset.color5
-      );
-      document.documentElement.style.setProperty(
-        "--spin-color",
-        el.target.dataset.color6
-      );
-      document.documentElement.style.setProperty(
-        "--spinBackground-color",
-        el.target.dataset.color7
-      );
-    });
   });
-  // end colors
 });
+// end colors
+// });
 // document.querySelector(".mySpiner").addEventListener("load", function () {
 //   document.querySelector(".mySpiner").style.display = "flex";
 // });
@@ -226,16 +243,15 @@ let mySection = document.querySelector(".main-section");
 let meImage = document.querySelector(".main-section .image");
 //
 let imageAbout = document.querySelector(".about .image");
-let spans = document.querySelectorAll(".spanProgress");
+let SpansProgress = document.querySelectorAll(".spanProgress");
 let span = document.querySelectorAll(".Progress .info span:first-child");
 
 let stat = false;
-
 let about = document.querySelector(".about");
 let Projects = document.querySelector(".about .col2");
 
 // button
-let myButton = document.querySelector(".myButton");
+let MyButton = document.querySelector(".myButton");
 // services
 let services = document.querySelector(".services");
 // myportfolio
@@ -332,69 +348,134 @@ imagesPortfolio.forEach((image) => {
   image.addEventListener("click", (e) => {
     // console.log(e.target)
     // make box
-    let div = document.createElement("div");
-    div.classList = "boxOver";
-    // make over
-    let over = document.createElement("div");
-    over.classList = "overLay";
-    div.appendChild(over);
-    //
-    let imageBox = document.createElement("div");
-    imageBox.classList = "imageBox";
-    let image = document.createElement("img");
-    image.setAttribute("src", e.target.src);
-    let span = document.createElement("span");
-    let spanText = document.createTextNode("X");
-    span.title = "close the image";
-    span.appendChild(spanText);
-    imageBox.appendChild(image);
-    imageBox.appendChild(span);
-    div.appendChild(imageBox);
+    if (e.target.parentElement.classList.contains("link")) {
+      console.log("if");
+      return false;
+    } else {
+      console.log(e.target);
+      let div = document.createElement("div");
+      div.classList = "boxOver";
+      // make over
+      let over = document.createElement("div");
+      over.classList = "overLay";
+      div.appendChild(over);
+      //
+      let imageBox = document.createElement("div");
+      imageBox.classList = "imageBox";
+      let image = document.createElement("img");
+      image.setAttribute("src", e.target.src);
+      let span = document.createElement("span");
+      let spanText = document.createTextNode("X");
+      // span.title = "close the image";
+      span.appendChild(spanText);
+      imageBox.appendChild(image);
+      imageBox.appendChild(span);
+      div.appendChild(imageBox);
 
-    span.addEventListener("click", (e) => {
-      div.remove();
-    });
-    //
-    document.body.prepend(div);
+      span.addEventListener("click", (e) => {
+        div.remove();
+      });
+      //
+      document.body.prepend(div);
+      document.body.style.overflow = "hidden";
+      span.addEventListener("click", (e) => {
+        document.body.style.overflow = "auto";
+      });
+    }
   });
 });
+
 // end portfolio
+const fromRight = document.querySelectorAll(".fromRight"),
+  fromLeft = document.querySelectorAll(".fromLeft"),
+  fromTop = document.querySelectorAll(".fromTop"),
+  fromBottom = document.querySelectorAll(".fromBottom");
+
 window.onscroll = function () {
+  ////////
+
+  fromRight.forEach((item) => {
+    if (
+      scrollY >
+      item.offsetTop + item.offsetHeight - window.innerHeight - 100
+    ) {
+      item.style.cssText = "    left: 0px;opacity: 1; ";
+    } else {
+      item.style.cssText = "    left: 195px;opacity: 0;";
+    }
+  });
+  fromLeft.forEach((item) => {
+    if (
+      scrollY >
+      item.offsetTop + item.offsetHeight - window.innerHeight - 100
+    ) {
+      item.style.cssText = "    right: 0px;opacity: 1; ";
+    } else {
+      item.style.cssText = "    right: 195px;opacity: 0;";
+    }
+  });
+  fromTop.forEach((item) => {
+    if (
+      scrollY >
+      item.offsetTop + item.offsetHeight - window.innerHeight - 100
+    ) {
+      item.style.cssText = "    bottom: 0px;opacity: 1;";
+    } else {
+      item.style.cssText = "    bottom: 195px;opacity: 0;";
+    }
+  });
+  fromBottom.forEach((item) => {
+    if (
+      scrollY >
+      item.offsetTop + item.offsetHeight - window.innerHeight - 100
+    ) {
+      item.style.cssText = "top: 0px;opacity: 1;";
+    } else {
+      item.style.cssText = "top: 100px;opacity: 0;";
+    }
+  });
+
+  // //////
   if (window.scrollY > mainNav.offsetTop + 50) {
     mainNav.style.boxShadow = " 0 5px 7px rgb(0 0 0 / 13%)";
   } else {
     mainNav.style.boxShadow = " 0 2px 5px rgb(0 0 0 / 13%)";
   }
   //  meImage
-  if (window.scrollY >= meImage.offsetTop - 400) {
-    meImage.style.opacity = "1";
-    meImage.style.left = "0";
-  } else {
-    meImage.style.opacity = "0";
-    meImage.style.left = "500px";
-  }
+  // if (window.scrollY >= meImage.offsetTop - 400) {
+  //   meImage.style.opacity = "1";
+  //   meImage.style.left = "0";
+  // } else {
+  //   meImage.style.opacity = "0";
+  //   meImage.style.left = "500px";
+  // }
   // nav
   // start About section
-  if (window.scrollY >= imageAbout.offsetTop - 400) {
-    imageAbout.style.opacity = "1";
-    imageAbout.style.left = "0";
-  } else {
-    imageAbout.style.opacity = "0";
-    imageAbout.style.left = "-100px";
-  }
+  // if (window.scrollY >= imageAbout.offsetTop - 400) {
+  //   imageAbout.style.opacity = "1";
+  //   imageAbout.style.left = "0";
+  // } else {
+  //   imageAbout.style.opacity = "0";
+  //   imageAbout.style.left = "-100px";
+  // }
   if (window.scrollY >= 400) {
-    myButton.style.opacity = "1";
-    myButton.style.bottom = "30px";
+    MyButton.style.opacity = "1";
+    MyButton.style.bottom = "30px";
   } else {
-    myButton.style.opacity = "0";
-    myButton.style.bottom = "10px";
+    MyButton.style.opacity = "0";
+    MyButton.style.bottom = "10px";
   }
   //
 
-  if (window.scrollY >= about.offsetTop - 200) {
+  if (
+    window.scrollY >=
+    document.querySelector(".progresses").offsetTop +
+      document.querySelector(".progresses").offsetHeight -
+      window.innerHeight
+  ) {
     document.querySelector(".progresses").style.opacity = "1";
 
-    spans.forEach(function (span) {
+    SpansProgress.forEach(function (span) {
       span.style.width = span.dataset.width;
     });
     //
@@ -414,17 +495,17 @@ window.onscroll = function () {
   } else {
     stat = false;
     document.querySelector(".progresses").style.opacity = "0";
-    spans.forEach(function (span) {
+    SpansProgress.forEach(function (span) {
       span.style.width = "0%";
     });
   }
-  if (window.scrollY >= Projects.offsetTop - 500) {
-    Projects.style.opacity = "1";
-    Projects.style.transform = "translateY(0)";
-  } else {
-    Projects.style.opacity = "0";
-    Projects.style.transform = "translateY(100px)";
-  }
+  // if (window.scrollY >= Projects.offsetTop - 500) {
+  //   Projects.style.opacity = "1";
+  //   Projects.style.transform = "translateY(0)";
+  // } else {
+  //   Projects.style.opacity = "0";
+  //   Projects.style.transform = "translateY(100px)";
+  // }
   // end About section
   // start nav scroll
   if (window.scrollY < about.offsetTop - 300) {
@@ -476,7 +557,7 @@ window.onscroll = function () {
 
 // portfolio
 // button
-myButton.addEventListener("click", () => {
+MyButton.addEventListener("click", () => {
   window.scrollTo({
     left: 0,
     top: 0,
