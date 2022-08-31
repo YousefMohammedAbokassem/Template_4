@@ -115,9 +115,9 @@ body {
         content: "close the image";
         position: absolute;
         opacity: 0;
-        left: -2px;
+        left: -2.5px;
         width: 129px;
-        bottom: -36px;
+        bottom: -39px;
         background-color: black;
         color: #fff;
         padding: 0px 5px;
@@ -130,12 +130,12 @@ body {
         width: 0;
         height: 0;
         border: 14px solid transparent;
-        left: -2px;
+        left: -2.5px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         transition: 0.5s;
-        top: 65%;
+        top: 66%;
         transition: 0.5s;
 
         border-color: transparent transparent #b6b6b6 transparent;
@@ -807,6 +807,7 @@ nav {
 .services {
   padding: var(--padding-top) 0px;
   background-color: var(--light-bg);
+
   .container {
     h1 {
       color: var(--text-color);

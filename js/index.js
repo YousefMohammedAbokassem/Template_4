@@ -68,7 +68,6 @@ myButton.addEventListener("click", function (e) {
     clickNav.style.pointerEvents = "auto";
     clickNav.style.opacity = "1";
     mainNav.style.backdropFilter = "none";
-    // myButton.classList.add("Show");
   } else if (myButton.classList.contains("show")) {
     Rows[0].style.transform = "rotate(0deg)";
     Rows[0].style.width = "40px";
@@ -92,38 +91,36 @@ myGear.addEventListener("click", function () {
 // end  option
 // start colors
 let spans = document.querySelectorAll(".option .color span ");
-// let color1 = localStorage.getItem("color1");
-// let color2 = localStorage.getItem("color2");
-let localColor = localStorage.getItem("color1");
+let localColor = sessionStorage.getItem("color1");
 
 if (localColor !== null) {
   document.documentElement.style.setProperty(
     "--main-color",
-    localStorage.getItem("color1")
+    sessionStorage.getItem("color1")
   );
   document.documentElement.style.setProperty(
     "--second-color",
-    localStorage.getItem("color2")
+    sessionStorage.getItem("color2")
   );
   document.documentElement.style.setProperty(
     "--dark-bg",
-    localStorage.getItem("color3")
+    sessionStorage.getItem("color3")
   );
   document.documentElement.style.setProperty(
     "--light-bg",
-    localStorage.getItem("color4")
+    sessionStorage.getItem("color4")
   );
   document.documentElement.style.setProperty(
     "--text-color",
-    localStorage.getItem("color5")
+    sessionStorage.getItem("color5")
   );
   document.documentElement.style.setProperty(
     "--spin-color",
-    localStorage.getItem("color6")
+    sessionStorage.getItem("color6")
   );
   document.documentElement.style.setProperty(
     "--spinBackground-color",
-    localStorage.getItem("color7")
+    sessionStorage.getItem("color7")
   );
   spans.forEach(function (span) {
     span.classList.remove("active");
@@ -136,22 +133,17 @@ if (localColor !== null) {
 spans.forEach(function (span) {
   span.addEventListener("click", function (el) {
     spans.forEach(function (e) {
-      // if (e.classList.contains("dark")) {
-      //   myGear.style.color = "#fff";
-      // }
       e.classList.remove("active");
     });
-    // span.target.classList.add("active");
     el.target.classList.add("active");
-
     // set item
-    localStorage.setItem("color1", el.target.dataset.color1);
-    localStorage.setItem("color2", el.target.dataset.color2);
-    localStorage.setItem("color3", el.target.dataset.color3);
-    localStorage.setItem("color4", el.target.dataset.color4);
-    localStorage.setItem("color5", el.target.dataset.color5);
-    localStorage.setItem("color6", el.target.dataset.color6);
-    localStorage.setItem("color7", el.target.dataset.color7);
+    sessionStorage.setItem("color1", el.target.dataset.color1);
+    sessionStorage.setItem("color2", el.target.dataset.color2);
+    sessionStorage.setItem("color3", el.target.dataset.color3);
+    sessionStorage.setItem("color4", el.target.dataset.color4);
+    sessionStorage.setItem("color5", el.target.dataset.color5);
+    sessionStorage.setItem("color6", el.target.dataset.color6);
+    sessionStorage.setItem("color7", el.target.dataset.color7);
     // set item
     document.documentElement.style.setProperty(
       "--main-color",
@@ -181,6 +173,14 @@ spans.forEach(function (span) {
       "--spinBackground-color",
       el.target.dataset.color7
     );
+    // remove zic if the color was green
+    let zic = document.querySelector(".zic");
+    console.log(el.target.dataset.color1);
+    if (el.target.dataset.color1 === "#0ba360") {
+      zic.style.cssText = "background-size:0px 0px";
+    } else {
+      zic.style.cssText = "background-size:40px 40px";
+    }
   });
 });
 // end colors
@@ -243,7 +243,7 @@ let imageAbout = document.querySelector(".about .image");
 let SpansProgress = document.querySelectorAll(".spanProgress");
 let span = document.querySelectorAll(".Progress .info span:first-child");
 
-let stat = false;
+let stat = true;
 let about = document.querySelector(".about");
 let Projects = document.querySelector(".about .col2");
 
@@ -271,7 +271,6 @@ lis.forEach((li) => {
     document.querySelectorAll(element.target.dataset.type).forEach((el) => {
       el.style.cssText = "opacity:1;";
     });
-
   });
 });
 
@@ -389,26 +388,26 @@ window.onscroll = function () {
       window.innerHeight
   ) {
     document.querySelector(".progresses").style.opacity = "1";
-
-    SpansProgress.forEach(function (span) {
-      span.style.width = span.dataset.width;
-    });
-    //
-    if (stat === false) {
-      span.forEach((el) => {
-        let goal = el.dataset.count;
-        el.innerHTML = 0;
+    if (stat) {
+      span.forEach((ele) => {
+        let goal = ele.dataset.count;
+        ele.innerHTML = 0;
         let count = setInterval(() => {
-          el.textContent++;
-          if (el.textContent === goal) {
-            clearTimeout(count);
+          ele.textContent++;
+          if (ele.textContent === goal) {
+            console.log(typeof goal);
+            console.log(typeof ele.textContent);
+            clearInterval(count);
           }
         }, 500 / goal);
       });
-      stat = true;
+      stat = false;
     }
+    SpansProgress.forEach((span) => {
+      span.style.width = span.dataset.width;
+    });
   } else {
-    stat = false;
+    stat = true;
     document.querySelector(".progresses").style.opacity = "0";
     SpansProgress.forEach(function (span) {
       span.style.width = "0%";

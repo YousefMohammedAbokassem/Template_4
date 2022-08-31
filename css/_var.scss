@@ -55,7 +55,7 @@ $min-lg: "min-width:1200px";
     @media ($min-lg) {
       @content;
     }
-  }@else if $point == "verySmall" {
+  } @else if $point == "verySmall" {
     @media ($very-sm) {
       @content;
     }
@@ -188,19 +188,17 @@ $them: "dark";
   .#{$className} {
     position: relative;
     z-index: 100;
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: $height;
-      background-size: $height $height;
-      background-image: linear-gradient(
-          135deg,
-          var(--light-bg) 25%,
-          transparent 25%
-        ),
-        linear-gradient(225deg, var(--light-bg) 25%, transparent 25%);
-    }
+    position: absolute;
+    z-index: 100;
+    height: 40px;
+    background-size: 40px 40px;
+    width: 100%;
+    background-image: linear-gradient(
+        135deg,
+        var(--light-bg) 25%,
+        transparent 25%
+      ),
+      linear-gradient(225deg, var(--light-bg) 25%, transparent 25%);
   }
 }
 
