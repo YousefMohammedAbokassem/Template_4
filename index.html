@@ -225,7 +225,7 @@
     <div class="about container-fluid" id="About">
       <div class="container child-about d-flex flex-column">
         <div class="col1 d-flex justify-content-around align-items-center">
-          <div class="image text-center">
+          <div class="image text-center fromLeft">
             <!-- <h1 class="fw-bold mb-4">About Me</h1> -->
             <div class="swiper main-box mySwiper">
               <div class="swiper-wrapper">
@@ -417,19 +417,19 @@
         <p class="text-uppercase">I have built these</p>
       </div>
       <ul
-        class="d-flex justify-content-center align-items-center list-unstyled"
+        class="d-flex justify-content-center align-items-center flex-sm-row flex-column list-unstyled"
       >
-        <li class="active All">All</li>
+        <li class="active" data-type=".all">All</li>
         <!--design-->
-        <li class="html">html/css</li>
+        <li class="" data-type=".html">html/css</li>
         <!--scss-->
-        <li class="scss">SCSS/JS</li>
+        <li class="" data-type=".scss">SCSS/JS</li>
         <!--boot-->
-        <li class="boot">JS/BOOTSTRAP/SCSS</li>
+        <li class="" data-type=".boot">JS/BOOTSTRAP/SCSS</li>
         <!-- <li class="app">App</li> -->
       </ul>
       <div class="row mx-1 mb-4">
-        <div class="col-md-6 mb-3 html all fromLeft">
+        <div class="col-md-6 mb-3 html all">
           <!-- <div class="image fromLeft">
             <img src="./img/link.png"  class="myLinkImg" alt="" />
           </div> -->
@@ -549,7 +549,7 @@
           <!--  -->
         </div>
         <!--  -->
-        <div class="col-md-6 html all fromRight">
+        <div class="col-md-6 html all">
           <div class="swiper main-box mySwiper">
             <div class="swiper-wrapper">
               <!-- start -->
@@ -682,7 +682,7 @@
           </div>
         </div>
         <!--2222  -->
-        <div class="col-md-6 mb-3 scss all fromLeft">
+        <div class="col-md-6 mb-3 scss all">
           <div class="swiper main-box mySwiper">
             <div class="swiper-wrapper">
               <!-- start -->
@@ -814,7 +814,7 @@
         </div>
         <!-- enddddddddddddd -->
 
-        <div class="col-md-6 mb-3 boot scss all fromRight">
+        <div class="col-md-6 mb-3 boot scss all">
           <div class="swiper main-box mySwiper">
             <div class="swiper-wrapper">
               <!-- start -->
@@ -945,7 +945,7 @@
 
         <!-- -->
         <!--  -->
-        <div class="col-md-6 boot scss all fromTop">
+        <div class="col-md-6 boot scss all">
           <div class="swiper main-box mySwiper">
             <div class="swiper-wrapper">
               <!-- start -->
@@ -1079,18 +1079,6 @@
             </div>
           </div>
         </div>
-
-        <!--  -->
-
-        <!--  -->
-
-        <!--  -->
-        <!-- <div class="col-md-6  mb-3 app all">
-          <div class="image">
-            <img src="./img/link.png"  class="myLinkImg" alt="" />
-          </div>
-        </div> -->
-        <!--  -->
       </div>
     </div>
     <!-- end Portfolio  -->
@@ -1098,8 +1086,8 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/tilt.js"></script>
     <!-- <script src="./js/wow.min.js"></script> -->
-    <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/scroll.js"></script>
+    <!-- <script src="./js/jquery-3.6.0.min.js"></script> -->
+    <script src="./js/swiper.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

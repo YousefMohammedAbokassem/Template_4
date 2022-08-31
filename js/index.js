@@ -184,10 +184,7 @@ spans.forEach(function (span) {
   });
 });
 // end colors
-// });
-// document.querySelector(".mySpiner").addEventListener("load", function () {
-//   document.querySelector(".mySpiner").style.display = "flex";
-// });
+
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
@@ -261,85 +258,20 @@ const lis = document.querySelectorAll(".portfolio ul li"),
   imgs = document.querySelectorAll(".portfolio .all img"),
   portfolio = document.getElementById("Portfolio");
 
-// imgs.forEach((img) => {
-//   // console.log(img);
-//   img.addEventListener("click", (e) => {
-//     // console.log(img);
-//     // overlay//
-//     let over = document.createElement("div");
-//     over.className = "overLay";
-//     document.body.prepend(over);
-//     //  popup
-//     let popup = document.createElement("img");
-//     console.log(e.target.src);
-//     popup.setAttribute("src", e.target.src);
-
-//     popup.className = "imgOver";
-//     over.prepend(popup);
-//     //
-//     let span = document.createElement("span");
-//     let text = document.createTextNode("X");
-//     span.style.cssText =
-//       "position: absolute;z-index: 5002;   background: #111;  color: white; left: 50%; top: 20%;padding: 10px;border-radius: 50%; cursor:pointer;";
-//     span.appendChild(text);
-//     over.append(span);
-//     span.addEventListener("click", () => {
-//       over.remove();
-//     });
-//   });
-// });
 lis.forEach((li) => {
   li.addEventListener("click", (element) => {
     lis.forEach((li) => {
       li.classList.remove("active");
     });
     element.target.classList.add("active");
-    // console.log(element.target.classList.contains("html"));
-    if (element.target.classList.contains("html")) {
-      images.forEach((image) => {
-        if (image.classList.contains("html")) {
-          image.style.cssText = "display:block;";
-        } else {
-          image.style.cssText = "display:none;";
-        }
-      });
-    }
-    if (element.target.classList.contains("scss")) {
-      images.forEach((image) => {
-        if (image.classList.contains("scss")) {
-          image.style.cssText = "display:block;";
-        } else {
-          image.style.cssText = "display:none;";
-        }
-      });
-    }
-    if (element.target.classList.contains("boot")) {
-      images.forEach((image) => {
-        if (image.classList.contains("boot")) {
-          image.style.cssText = "display:block;";
-        } else {
-          image.style.cssText = "display:none;";
-        }
-      });
-    }
-    // if (element.target.classList.contains("app")) {
-    //   images.forEach((image) => {
-    //     if (image.classList.contains("app")) {
-    //       image.style.cssText = "display:block;";
-    //     } else {
-    //       image.style.cssText = "display:none;";
-    //     }
-    //   });
-    // }
-    if (element.target.classList.contains("All")) {
-      images.forEach((image) => {
-        if (image.classList.contains("all")) {
-          image.style.cssText = "display:block;";
-        } else {
-          image.style.cssText = "display:none;";
-        }
-      });
-    }
+    images.forEach((image) => {
+      image.style.cssText = "opacity:0; width: 0;padding: 0px;";
+    });
+
+    document.querySelectorAll(element.target.dataset.type).forEach((el) => {
+      el.style.cssText = "opacity:1;";
+    });
+
   });
 });
 
@@ -441,23 +373,6 @@ window.onscroll = function () {
   } else {
     mainNav.style.boxShadow = " 0 2px 5px rgb(0 0 0 / 13%)";
   }
-  //  meImage
-  // if (window.scrollY >= meImage.offsetTop - 400) {
-  //   meImage.style.opacity = "1";
-  //   meImage.style.left = "0";
-  // } else {
-  //   meImage.style.opacity = "0";
-  //   meImage.style.left = "500px";
-  // }
-  // nav
-  // start About section
-  // if (window.scrollY >= imageAbout.offsetTop - 400) {
-  //   imageAbout.style.opacity = "1";
-  //   imageAbout.style.left = "0";
-  // } else {
-  //   imageAbout.style.opacity = "0";
-  //   imageAbout.style.left = "-100px";
-  // }
   if (window.scrollY >= 400) {
     MyButton.style.opacity = "1";
     MyButton.style.bottom = "30px";
@@ -499,15 +414,7 @@ window.onscroll = function () {
       span.style.width = "0%";
     });
   }
-  // if (window.scrollY >= Projects.offsetTop - 500) {
-  //   Projects.style.opacity = "1";
-  //   Projects.style.transform = "translateY(0)";
-  // } else {
-  //   Projects.style.opacity = "0";
-  //   Projects.style.transform = "translateY(100px)";
-  // }
-  // end About section
-  // start nav scroll
+
   if (window.scrollY < about.offsetTop - 300) {
     let Hover = document.querySelector(".Hover");
     Hover.style.cssText = "left:14px";

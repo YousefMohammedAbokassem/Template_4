@@ -851,6 +851,7 @@ nav {
     > div {
       counter-increment: counter;
       margin: 10px 0px;
+      transition: 0.8s;
       @include flexcenter;
     }
 
@@ -910,11 +911,11 @@ nav {
       }
       &:hover .links .link img {
         // margin-left: 50px;
-        @include media("mobile"){
+        @include media("mobile") {
           margin-left: 20px;
         }
-        @include media("verySmall"){
-         margin-left: 68px;
+        @include media("verySmall") {
+          margin-left: 68px;
         }
       }
     }
