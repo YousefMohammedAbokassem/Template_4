@@ -175,7 +175,7 @@ spans.forEach(function (span) {
     );
     // remove zic if the color was green
     let zic = document.querySelector(".zic");
-    console.log(el.target.dataset.color1);
+    // console.log(el.target.dataset.color1);
     if (el.target.dataset.color1 === "#0ba360") {
       zic.style.cssText = "background-size:0px 0px";
     } else {
@@ -277,13 +277,21 @@ lis.forEach((li) => {
 let imagesPortfolio = document.querySelectorAll(" .portfolio .all .image img");
 imagesPortfolio.forEach((image) => {
   image.addEventListener("click", (e) => {
-    // console.log(e.target)
+    // regular expression for link image won't show when i click on  it
+    // console.log(re.test(ma));
+    let re = /\S*link.\w+/gi;
+    let bool = re.test(e.target.src);
+    console.log(bool ,"bool");
     // make box
-    if (e.target.parentElement.classList.contains("link")) {
-      console.log("if");
+    // if true dont show link image in popup else show the image in popup
+    if (bool) {
+      console.log(e.target.src.match(re));
+      console.log(re.test(e.target.src));
       return false;
     } else {
-      console.log(e.target);
+      console.log(e.target.src.match(re));
+      console.log(re.test(e.target.src));
+      // console.log(e.target.src, re.test(e.target.src));
       let div = document.createElement("div");
       div.classList = "boxOver";
       // make over
@@ -395,8 +403,8 @@ window.onscroll = function () {
         let count = setInterval(() => {
           ele.textContent++;
           if (ele.textContent === goal) {
-            console.log(typeof goal);
-            console.log(typeof ele.textContent);
+            // console.log(typeof goal);
+            // console.log(typeof ele.textContent);
             clearInterval(count);
           }
         }, 500 / goal);
