@@ -175,7 +175,6 @@ spans.forEach(function (span) {
     );
     // remove zic if the color was green
     let zic = document.querySelector(".zic");
-    // console.log(el.target.dataset.color1);
     if (el.target.dataset.color1 === "#0ba360") {
       zic.style.cssText = "background-size:0px 0px";
     } else {
@@ -278,20 +277,13 @@ let imagesPortfolio = document.querySelectorAll(" .portfolio .all .image img");
 imagesPortfolio.forEach((image) => {
   image.addEventListener("click", (e) => {
     // regular expression for link image won't show when i click on  it
-    // console.log(re.test(ma));
     let re = /\S*link.\w+/gi;
     let bool = re.test(e.target.src);
-    console.log(bool, "bool");
     // make box
     // if true dont show link image in popup else show the image in popup
     if (bool) {
-      console.log(e.target.src.match(re));
-      console.log(re.test(e.target.src));
       return false;
     } else {
-      console.log(e.target.src.match(re));
-      console.log(re.test(e.target.src));
-      // console.log(e.target.src, re.test(e.target.src));
       let div = document.createElement("div");
       div.classList = "boxOver";
       // make over
@@ -312,7 +304,6 @@ imagesPortfolio.forEach((image) => {
       // for triangle in media 600 and lower than 600 to hide 
       Linkimg2.classList.add("cloneImageLink2", "d-block", "d-sm-none");
       // Linkimg.classList.remove("link");
-      console.log(Linkimg);
       // span.title = "close the image";
       span.appendChild(spanText);
       imageBox.appendChild(image);
@@ -412,8 +403,6 @@ window.onscroll = function () {
         let count = setInterval(() => {
           ele.textContent++;
           if (ele.textContent === goal) {
-            // console.log(typeof goal);
-            // console.log(typeof ele.textContent);
             clearInterval(count);
           }
         }, 500 / goal);

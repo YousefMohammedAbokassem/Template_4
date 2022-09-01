@@ -929,6 +929,7 @@ nav .clickNav .icons .icon a i:hover {
 .services {
   padding: var(--padding-top) 0px;
   background-color: var(--light-bg);
+  overflow: hidden;
 }
 .services .container h1 {
   color: var(--text-color);
