@@ -596,12 +596,13 @@ nav {
       position: relative;
       animation: image 2.5s infinite alternate-reverse ease;
       .img {
-        border-radius: 50%;
         border: 3px solid var(--main-color);
-        width: 348px;
-        height: 348px;
+        @include circle(348px);
         box-shadow: 0px 0px 10px var(--main-color);
         filter: drop-shadow(2px 2px 20px var(--second-color));
+        @media (max-width: 380px) {
+          @include circle(296px);
+        }
       }
       @include media("small") {
         margin-top: 30px;
