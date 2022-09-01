@@ -281,7 +281,7 @@ imagesPortfolio.forEach((image) => {
     // console.log(re.test(ma));
     let re = /\S*link.\w+/gi;
     let bool = re.test(e.target.src);
-    console.log(bool ,"bool");
+    console.log(bool, "bool");
     // make box
     // if true dont show link image in popup else show the image in popup
     if (bool) {
@@ -300,17 +300,26 @@ imagesPortfolio.forEach((image) => {
       div.appendChild(over);
       //
       let imageBox = document.createElement("div");
-      imageBox.classList = "imageBox";
+      imageBox.classList = "imageBox imageBoxClone";
       let image = document.createElement("img");
       image.setAttribute("src", e.target.src);
       let span = document.createElement("span");
       let spanText = document.createTextNode("X");
+      // clone link image node and give it a class
+      let Linkimg = document.querySelector(".link").cloneNode(true);
+      let Linkimg2 = document.querySelector(".link").cloneNode(true);
+      Linkimg.classList.add("cloneImageLink","d-sm-block","d-none");
+      // for triangle in media 600 and lower than 600 to hide 
+      Linkimg2.classList.add("cloneImageLink2", "d-block", "d-sm-none");
+      // Linkimg.classList.remove("link");
+      console.log(Linkimg);
       // span.title = "close the image";
       span.appendChild(spanText);
       imageBox.appendChild(image);
       imageBox.appendChild(span);
+      imageBox.appendChild(Linkimg);
+      imageBox.appendChild(Linkimg2);
       div.appendChild(imageBox);
-
       span.addEventListener("click", (e) => {
         div.remove();
       });

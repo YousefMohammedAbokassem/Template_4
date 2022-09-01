@@ -127,6 +127,7 @@ body {
   }
 }
 .boxOver .imageBox img {
+  width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
@@ -181,6 +182,66 @@ body {
 }
 .boxOver .imageBox span:hover::before {
   opacity: 1;
+}
+.boxOver .imageBox .cloneImageLink {
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}
+.boxOver .imageBox .cloneImageLink::before {
+  content: "visit the project";
+  width: 7rem;
+  font-size: 1rem;
+  position: absolute;
+  left: -272%;
+  top: 31%;
+  padding-left: 5px;
+  color: #fff;
+  background-color: rgba(17, 17, 17, 0.5098039216);
+}
+.boxOver .imageBox .cloneImageLink::after {
+  content: "";
+  position: absolute;
+  border: 1.4rem solid transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.5s;
+  top: 10%;
+  left: -48%;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.5215686275);
+}
+.boxOver .imageBox .cloneImageLink2 {
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+}
+.boxOver .imageBox .cloneImageLink2::before {
+  content: "visit the project";
+  font-size: 0.5rem;
+  position: absolute;
+  left: -160.9%;
+  top: 35%;
+  padding-left: 5px;
+  line-height: 20px;
+  color: #fff;
+  background-color: rgba(17, 17, 17, 0.5098039216);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boxOver .imageBox .cloneImageLink2::after {
+  content: "";
+  position: absolute;
+  border: 1.4rem solid transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.5s;
+  top: 10%;
+  left: -48%;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.5215686275);
 }
 
 * {
