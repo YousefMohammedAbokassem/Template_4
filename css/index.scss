@@ -19,8 +19,7 @@ body {
     var(--main-color),
     var(--second-color)
   );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include fillColor();
   font-weight: bold;
 
   &:hover {
@@ -226,6 +225,7 @@ body {
   &::selection {
     background-color: var(--second-color);
     color: white !important;
+    // on the elements that contain  -webkit-text-fill-color: transparent  the text won't show on the background because of this i put this line;
     -webkit-text-fill-color: white;
   }
 }

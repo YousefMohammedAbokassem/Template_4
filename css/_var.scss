@@ -69,6 +69,16 @@ $min-lg: "min-width:1200px";
     var(--second-color)
   );
 }
+// fill color
+@mixin fillColor() {
+  background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// fill color
 // gradient text
 @mixin textgdarient {
   @include gradient(45deg);
