@@ -17,31 +17,31 @@ let mylis = document.querySelectorAll(".myli");
 
 mylis[0].onclick = function () {
   Hover.style.cssText = "left:14px;  ";
-  scrollTo({
-    top: document.getElementById("Home").offsetTop,
-    behavior: "smooth",
-  });
+  // scrollTo({
+  //   top: document.getElementById("Home").offsetTop,
+  //   behavior: "smooth",
+  // });
 };
 mylis[1].onclick = function () {
   Hover.style.cssText = "left:105px; ";
-  scrollTo({
-    top: document.getElementById("About").offsetTop,
-    behavior: "smooth",
-  });
+  // scrollTo({
+  //   top: document.getElementById("About").offsetTop,
+  //   behavior: "smooth",
+  // });
 };
 mylis[2].onclick = function () {
   Hover.style.cssText = "left: 194px; width: 83px; ";
-  scrollTo({
-    top: document.getElementById("Services").offsetTop,
-    behavior: "smooth",
-  });
+  // scrollTo({
+  //   top: document.getElementById("Services").offsetTop,
+  //   behavior: "smooth",
+  // });
 };
 mylis[3].onclick = function () {
   Hover.style.cssText = "left: 306px; width: 84px;";
-  scrollTo({
-    top: document.getElementById("Portfolio").offsetTop,
-    behavior: "smooth",
-  });
+  // scrollTo({
+  //   top: document.getElementById("Portfolio").offsetTop,
+  //   behavior: "smooth",
+  // });
 };
 
 //
