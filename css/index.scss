@@ -37,6 +37,56 @@ body {
     transition: 0.5s;
   }
 }
+// popupForOs
+.popupForOs {
+  width: 300px;
+  border-radius: 10px;
+  height: 150px;
+  background-color: black;
+  color: white;
+  position: fixed;
+  right: -320px;
+  top: 30px;
+  font-weight: bold;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  padding: 10px;
+  z-index: 10000000000;
+  @include gradient(45deg);
+  animation: popupForOs 5s linear forwards 2s;
+  -webkit-animation: popupForOs 5s linear forwards 2s;
+  @media (max-width: 350px) {
+    width: 200px;
+  }
+}
+// popupForOs
+// /popupForOnOffLine
+.popupForOnOffLine {
+  position: fixed;
+  width: 300px;
+  border-radius: 10px;
+  height: auto;
+  background-color: black;
+  color: white;
+  right: -0px;
+  opacity: 0;
+  top: -200px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: capitalize;
+  padding: 10px;
+  z-index: 1000000000;
+    @include gradient(45deg);
+  @media (max-width: 350px) {
+    width: 250px;
+  }
+}
+// /popupForOnOffLine
+
 // clone link that show in popup box in  portfolio section && image box clone
 
 .myspiner {
@@ -1024,3 +1074,53 @@ nav {
   }
 }
 @include container();
+// popupForOs
+
+@include keyF(popupForOs) {
+  0% {
+    right: -320px;
+    opacity: 0;
+  }
+  25% {
+    right: 0px;
+    opacity: 1;
+  }
+  75% {
+    right: 0px;
+    opacity: 1;
+  }
+  85% {
+    right: 100px;
+    opacity: 1;
+  }
+  100% {
+    right: -320px;
+    opacity: 0;
+  }
+}
+// popupForOs
+// popupForOnOffLine
+@include keyF(popupForOnOffLine) {
+  100% {
+    top: 30px;
+    opacity: 1;
+  }
+}
+//popupForOnOffLine
+
+// popupForOnOffLine
+@include keyF(popupForOnline) {
+  0% {
+    top: 30px;
+    opacity: 1;
+  }
+  25% {
+    top: 50px;
+    opacity: 1;
+  }
+  100% {
+    top: -200px;
+    opacity: 0;
+  }
+}
+// popupForOnOffLine

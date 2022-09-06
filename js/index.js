@@ -300,8 +300,8 @@ imagesPortfolio.forEach((image) => {
       // clone link image node and give it a class
       let Linkimg = document.querySelector(".link").cloneNode(true);
       let Linkimg2 = document.querySelector(".link").cloneNode(true);
-      Linkimg.classList.add("cloneImageLink","d-sm-block","d-none");
-      // for triangle in media 600 and lower than 600 to hide 
+      Linkimg.classList.add("cloneImageLink", "d-sm-block", "d-none");
+      // for triangle in media 600 and lower than 600 to hide
       Linkimg2.classList.add("cloneImageLink2", "d-block", "d-sm-none");
       // Linkimg.classList.remove("link");
       // span.title = "close the image";
@@ -468,6 +468,35 @@ window.onscroll = function () {
 };
 
 // portfolio
+// show which device I am using
+// popupforos
+let reExp =
+  /linux os|windows|mac os|ubuntu|Fedora|FreeBSD|MS-Windows| Ubuntu|Mac OS|Fedora|Solaris|Free BSD| Chrome OS| CentOS|Debian| Deepin|android|webos|iphone|ipad|ipod|blackberry|iemobile|operamini|windows phone/i;
+let popupForOs = document.querySelector(".popupForOs");
+console.log(popupForOs);
+if (reExp.test(navigator.userAgent)) {
+  console.log(navigator.userAgent.match(reExp)[0]);
+  popupForOs.innerHTML = `Hello ${navigator.userAgent.match(reExp)[0]} folks `;
+} else {
+  console.log("a");
+}
+
+// popupforos
+// popupForOnOffLine
+let popupForOnOffLine = document.querySelector(".popupForOnOffLine");
+window.addEventListener("online", function () {
+  popupForOnOffLine.innerHTML =
+    "(:<br> you have restore your internet collection";
+  popupForOnOffLine.style.cssText =
+    "   animation: 3s ease forwards  popupForOnline ;";
+});
+window.addEventListener("offline", function () {
+  popupForOnOffLine.innerHTML =
+    " ):<br /> ops you lost your internet collection";
+  popupForOnOffLine.style.cssText =
+    "  animation: 2s linear forwards  popupForOnOffLine;";
+});
+// popupForOnOffLine
 // button
 MyButton.addEventListener("click", () => {
   window.scrollTo({
