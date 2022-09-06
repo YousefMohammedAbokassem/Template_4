@@ -585,7 +585,7 @@ nav {
         background-color: var(--text-color);
         transform-origin: left;
         transition: 0.3s;
-        @include gradient(180deg);
+        @include gradient(45deg);
       }
     }
   }
