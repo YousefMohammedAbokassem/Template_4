@@ -300,6 +300,61 @@ imagesPortfolio.forEach((image) => {
       // clone link image node and give it a class
       let Linkimg = document.querySelector(".link").cloneNode(true);
       let Linkimg2 = document.querySelector(".link").cloneNode(true);
+      // remove image after click X
+      Linkimg.addEventListener("click", () => {
+        span.click();
+      });
+      Linkimg2.addEventListener("click", () => {
+        span.click();
+      });
+      // console.log(e.target.src);
+      if (e.target.src.includes("template1")) {
+        // console.log(e.target.src);
+        Linkimg.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/trmplate-1-html-css/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/trmplate-1-html-css/"
+        );
+      } else if (e.target.src.includes("template20")) {
+        Linkimg.setAttribute(
+          "href",
+          " https://yousefmohammedabokassem.github.io/temlate-2/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          " https://yousefmohammedabokassem.github.io/temlate-2/"
+        );
+      } else if (e.target.src.includes("template30")) {
+        Linkimg.setAttribute(
+          "href",
+          " https://yousefmohammedabokassem.github.io/template_3/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          " https://yousefmohammedabokassem.github.io/template_3/"
+        );
+      } else if (e.target.src.includes("template40")) {
+        Linkimg.setAttribute(
+          "href",
+          "  https://yousefmohammedabokassem.github.io/Template_4/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "  https://yousefmohammedabokassem.github.io/Template_4/"
+        );
+      } else if (e.target.src.includes("template50")) {
+        Linkimg.setAttribute(
+          "href",
+          " https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "  https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
+        );
+      }
       Linkimg.classList.add("cloneImageLink", "d-sm-block", "d-none");
       // for triangle in media 600 and lower than 600 to hide
       Linkimg2.classList.add("cloneImageLink2", "d-block", "d-sm-none");
@@ -474,31 +529,34 @@ window.onscroll = function () {
 let reExp =
   /linux os|windows|mac os|ubuntu|Fedora|FreeBSD|MS-Windows| Ubuntu|Mac OS|Fedora|Solaris|Free BSD| Chrome OS| CentOS|Debian| Deepin|android|webos|iphone|ipad|ipod|blackberry|iemobile|operamini|windows phone/i;
 let popupForOs = document.querySelector(".popupForOs");
-console.log(popupForOs);
-if (reExp.test(navigator.userAgent)) {
-  console.log(navigator.userAgent.match(reExp)[0]);
-  fetch("https://api.ipregistry.co/?key=tryout")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (payload) {
-      let country = payload.location.country.name;
-      let city = payload.location.city;
-      // console.log(payload.location.country.name + ", " + payload.location.city);
-      // alert(`hello ${payload.location.country.name}`);
-      popupForOs.innerHTML = `Hello ${
-        navigator.userAgent.match(reExp)[0]
-      } folks <div class=text-capitalize> Hello ${country} people</div>
+// console.log(popupForOs);
+// it will work  below after DOMContentLoaded
+function popupForOS() {
+  if (reExp.test(navigator.userAgent)) {
+    // console.log(navigator.userAgent.match(reExp)[0]);
+    fetch("https://api.ipregistry.co/?key=tryout")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (payload) {
+        let country = payload.location.country.name;
+        let city = payload.location.city;
+        // console.log(payload.location.country.name + ", " + payload.location.city);
+        // alert(`hello ${payload.location.country.name}`);
+        popupForOs.innerHTML = `Hello ${
+          navigator.userAgent.match(reExp)[0]
+        } folks <div class=text-capitalize> Hello ${country} people</div>
       `;
-    })
-    .catch(function (err) {
-      popupForOs.innerHTML = `Hello ${
-        navigator.userAgent.match(reExp)[0]
-      } folks 
+      })
+      .catch(function (err) {
+        popupForOs.innerHTML = `Hello ${
+          navigator.userAgent.match(reExp)[0]
+        } folks 
       `;
-    });
-} else {
-  popupForOs.remove();
+      });
+  } else {
+    popupForOs.remove();
+  }
 }
 
 // popupforos
@@ -589,4 +647,5 @@ document.addEventListener("DOMContentLoaded", function () {
   myanimRight.style.right = "-2000px";
   //
   mySpin.style.display = "none";
+  popupForOS();
 });
