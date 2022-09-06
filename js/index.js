@@ -470,15 +470,35 @@ window.onscroll = function () {
 // portfolio
 // show which device I am using
 // popupforos
+// to get user location
 let reExp =
   /linux os|windows|mac os|ubuntu|Fedora|FreeBSD|MS-Windows| Ubuntu|Mac OS|Fedora|Solaris|Free BSD| Chrome OS| CentOS|Debian| Deepin|android|webos|iphone|ipad|ipod|blackberry|iemobile|operamini|windows phone/i;
 let popupForOs = document.querySelector(".popupForOs");
 console.log(popupForOs);
 if (reExp.test(navigator.userAgent)) {
   console.log(navigator.userAgent.match(reExp)[0]);
-  popupForOs.innerHTML = `Hello ${navigator.userAgent.match(reExp)[0]} folks `;
+  fetch("https://api.ipregistry.co/?key=tryout")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (payload) {
+      let country = payload.location.country.name;
+      let city = payload.location.city;
+      // console.log(payload.location.country.name + ", " + payload.location.city);
+      // alert(`hello ${payload.location.country.name}`);
+      popupForOs.innerHTML = `Hello ${
+        navigator.userAgent.match(reExp)[0]
+      } folks <div> Hello ${country}</div>
+      `;
+    })
+    .catch(function (err) {
+      popupForOs.innerHTML = `Hello ${
+        navigator.userAgent.match(reExp)[0]
+      } folks 
+      `;
+    });
 } else {
-  console.log("a");
+  popupForOs.remove();
 }
 
 // popupforos
