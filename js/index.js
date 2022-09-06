@@ -488,7 +488,7 @@ if (reExp.test(navigator.userAgent)) {
       // alert(`hello ${payload.location.country.name}`);
       popupForOs.innerHTML = `Hello ${
         navigator.userAgent.match(reExp)[0]
-      } folks <div> Hello ${country}</div>
+      } folks <div class=text-capitalize> Hello ${country} people</div>
       `;
     })
     .catch(function (err) {

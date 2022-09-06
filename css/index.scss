@@ -585,6 +585,7 @@ nav {
         background-color: var(--text-color);
         transform-origin: left;
         transition: 0.3s;
+        @include gradient(180deg);
       }
     }
   }
@@ -935,6 +936,9 @@ nav {
       transition: 0.4s;
       cursor: pointer;
       position: relative;
+      @include media("verySmall") {
+        padding: 5px 10px;
+      }
       &::before {
         content: "";
         position: absolute;
