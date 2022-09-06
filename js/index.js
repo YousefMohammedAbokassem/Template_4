@@ -486,16 +486,17 @@ if (reExp.test(navigator.userAgent)) {
 let popupForOnOffLine = document.querySelector(".popupForOnOffLine");
 window.addEventListener("online", function () {
   popupForOnOffLine.innerHTML =
-    "(:<br> you have restore your internet collection";
+    "<div class=on></div> you have restore your internet collection";
   popupForOnOffLine.style.cssText =
     "   animation: 3s ease forwards  popupForOnline ;";
 });
 window.addEventListener("offline", function () {
   popupForOnOffLine.innerHTML =
-    " ):<br /> ops you lost your internet collection";
+    " <div class=off ></div> ops you lost your internet collection";
   popupForOnOffLine.style.cssText =
     "  animation: 2s linear forwards  popupForOnOffLine;";
 });
+
 // popupForOnOffLine
 // button
 MyButton.addEventListener("click", () => {

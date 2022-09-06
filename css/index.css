@@ -107,6 +107,44 @@ body {
     width: 250px;
   }
 }
+.popupForOnOffLine div.on,
+.popupForOnOffLine div.off {
+  border: 2px solid;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  position: relative;
+}
+.popupForOnOffLine div.on::before,
+.popupForOnOffLine div.off::before {
+  content: ":";
+  position: absolute;
+  font-weight: 500;
+}
+.popupForOnOffLine div.on {
+  border-color: transparent transparent transparent #fff;
+  transform: translateX(14px);
+  -webkit-transform: translateX(14px);
+  -moz-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  -o-transform: translateX(14px);
+}
+.popupForOnOffLine div.on::before {
+  left: 9px;
+  top: -10px;
+}
+.popupForOnOffLine div.off {
+  border-color: transparent #fff transparent transparent;
+  transform: translateX(-25px);
+  -webkit-transform: translateX(-25px);
+  -moz-transform: translateX(-25px);
+  -ms-transform: translateX(-25px);
+  -o-transform: translateX(-25px);
+}
+.popupForOnOffLine div.off::before {
+  right: -9px;
+  top: -10.5px;
+}
 
 .myspiner {
   display: flex;

@@ -80,9 +80,46 @@ body {
   text-transform: capitalize;
   padding: 10px;
   z-index: 1000000000;
-    @include gradient(45deg);
+  @include gradient(45deg);
   @media (max-width: 350px) {
     width: 250px;
+  }
+  div.on,
+  div.off {
+    border: 2px solid;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    &::before {
+      content: ":";
+      position: absolute;
+      font-weight: 500;
+    }
+  }
+  div.on {
+    border-color: transparent transparent transparent #fff;
+    transform: translateX(14px);
+    -webkit-transform: translateX(14px);
+    -moz-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    -o-transform: translateX(14px);
+    &::before {
+      left: 9px;
+      top: -10px;
+    }
+  }
+  div.off {
+    border-color: transparent #fff transparent transparent;
+    transform: translateX(-25px);
+    -webkit-transform: translateX(-25px);
+    -moz-transform: translateX(-25px);
+    -ms-transform: translateX(-25px);
+    -o-transform: translateX(-25px);
+    &::before {
+      right: -9px;
+      top: -10.5px;
+    }
   }
 }
 // /popupForOnOffLine
