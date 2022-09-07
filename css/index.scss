@@ -4,6 +4,8 @@ body {
   // height: 10000px;
   font-family: "Cairo", sans-serif;
   overflow-x: hidden;
+  //  for js after load will be auto in y
+  overflow-y: hidden;
   position: relative;
 }
 .fromLeft,
@@ -134,7 +136,7 @@ body {
   z-index: 700000;
   height: 100vh;
   width: 100%;
-  background: rgba(0, 0, 0, 0.97);
+  background: rgba(0, 0, 0);
   position: fixed;
   span {
     @include circle(100px);
@@ -326,17 +328,21 @@ body {
   width: 15px;
 }
 ::-webkit-scrollbar-track {
-  background-color: black;
-  height: 100px;
+  background-color: rgba(0, 0, 0, 0.822);
 }
 ::-webkit-scrollbar-thumb {
-  // background-color: blue;
+  //background-color: blue;
   background: linear-gradient(
     to bottom,
-    transparent,
     var(--main-color),
-    transparent
+    white,
+    var(--main-color)
   );
+  border-radius: 88px;
+  -webkit-border-radius: 88px;
+  -moz-border-radius: 88px;
+  -ms-border-radius: 88px;
+  -o-border-radius: 88px;
 }
 .animaitionload {
   width: 100%;
@@ -444,11 +450,12 @@ body {
       background-image: linear-gradient(45deg, #4937f0, #9244f0);
     }
     span:nth-child(2) {
-      background-image: linear-gradient(45deg, #eeb378, #b35ed3);
+      background-image: linear-gradient(45deg, #e91e63, #d81b60);
     }
     span:nth-child(3) {
       background-image: linear-gradient(45deg, #0093e9, #80d0c7);
     }
+
     span:nth-child(4) {
       background-image: linear-gradient(45deg, #0ba360, #3cba92);
     }

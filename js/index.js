@@ -245,7 +245,17 @@ let span = document.querySelectorAll(".Progress .info span:first-child");
 let stat = true;
 let about = document.querySelector(".about");
 let Projects = document.querySelector(".about .col2");
+let h3about = document.querySelector(".box-3 h1:first-child");
+console.log(h3about);
 
+// fetch projects number from my github
+fetch("https://api.github.com/users/YousefMohammedAbokassem/repos")
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (res) {
+    res.length < 10 ? (h3about.innerHTML = `0${res.length}`) : res.length;
+  });
 // button
 let MyButton = document.querySelector(".myButton");
 // services
@@ -647,5 +657,6 @@ document.addEventListener("DOMContentLoaded", function () {
   myanimRight.style.right = "-2000px";
   //
   mySpin.style.display = "none";
+  document.body.style.overflowY = "auto";
   popupForOS();
 });
