@@ -557,12 +557,19 @@ function popupForOS() {
           navigator.userAgent.match(reExp)[0]
         } folks <div class=text-capitalize> Hello ${country} people</div>
       `;
+      // for don't start w ith css i put it in here for render after complete DOMContentLoaded 
+        popupForOs.style.cssText =
+          "animation: popupForOs 5s linear forwards 2s;";
       })
       .catch(function (err) {
+        
         popupForOs.innerHTML = `Hello ${
           navigator.userAgent.match(reExp)[0]
         } folks 
-      `;
+        `;
+        // for don't start w ith css i put it in here for render after complete DOMContentLoaded
+        popupForOs.style.cssText =
+          "animation: popupForOs 5s linear forwards 2s;";
       });
   } else {
     popupForOs.remove();
