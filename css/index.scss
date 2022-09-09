@@ -430,7 +430,7 @@ body {
   .colors {
     width: 80%;
     height: 85px;
-    background: #eee;
+    background: #d1cece;
     margin: 20px;
     @include flexcenter();
     flex-direction: column;
@@ -463,6 +463,33 @@ body {
     }
     h5 {
       color: var(--spin-color);
+    }
+  }
+  .editPersonal {
+    width: 80%;
+    height: auto;
+    background-color:#d1cece;
+    color: black;
+    padding: 30px 0px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > div {
+      color: var(--spin-color);
+      font-size: 0.9rem ;
+      padding: 0 5px;
+    }
+    span {
+      padding: 5px 1rem;
+      border-radius: 20px;
+      background-color: var(--second-color);
+      opacity: 0.5;
+      cursor: pointer;
+      user-select: none;
+    }
+    span.active {
+      opacity: 1;
     }
   }
 }

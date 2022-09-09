@@ -478,7 +478,7 @@ body {
 .option .colors {
   width: 80%;
   height: 85px;
-  background: #eee;
+  background: #d1cece;
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -514,6 +514,36 @@ body {
 }
 .option .colors h5 {
   color: var(--spin-color);
+}
+.option .editPersonal {
+  width: 80%;
+  height: auto;
+  background-color: #d1cece;
+  color: black;
+  padding: 30px 0px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.option .editPersonal > div {
+  color: var(--spin-color);
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+.option .editPersonal span {
+  padding: 5px 1rem;
+  border-radius: 20px;
+  background-color: var(--second-color);
+  opacity: 0.5;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.option .editPersonal span.active {
+  opacity: 1;
 }
 
 nav .clickNav {

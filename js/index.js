@@ -239,6 +239,76 @@ function erasing() {
     }
   }
 }
+// me image (personal image )
+const personalImage = document.querySelector(".img");
+// spans yes or no
+const personalSpans = document.querySelectorAll(".editPersonal span");
+
+// for handle setInterval
+let count;
+//  for change the images based on it
+let counter = 0;
+let countFun = function () {
+  count = setInterval(() => {
+    if (counter === 5) {
+      counter = 0;
+    }
+    personalImage.src = `./img/me${counter}.png`;
+    counter++;
+  }, 5 * 1000);
+};
+// countFun();
+// if the option in local or session storage was'n null
+let optionStorage = sessionStorage.getItem("option");
+let counterStorage = sessionStorage.getItem("counter");
+
+if (optionStorage !== null) {
+  // make my counter that i move the images based on it equal the value that i put it in the session or storage
+  if (optionStorage == "yes") {
+    // add active to yes button and remove it from no button
+    personalSpans[0].classList.add("active");
+    personalSpans[1].classList.remove("active");
+    countFun();
+  } else if (optionStorage == "no") {
+    //  because the counter will storage like its value but - 1
+    counter = counterStorage - 1;
+    personalImage.src = `./img/me${counter}.png`;
+    // add active to yes button and remove it from no button
+    personalSpans[1].classList.add("active");
+    personalSpans[0].classList.remove("active");
+    clearInterval(count);
+  }
+} else {
+  // if the storage was null turn on it direct
+  countFun();
+}
+//yes or not option
+personalSpans.forEach((span) => {
+  span.addEventListener("click", (ele) => {
+    // remove active from all span
+    personalSpans.forEach((el) => {
+      el.classList.remove("active");
+    });
+    // add active from target span that I clicked id
+    ele.target.classList.add("active");
+    // put in local or session storage the information about yes or no I clicked and counter that shows on which image i am
+    sessionStorage.setItem("option", ele.target.dataset.option);
+    // stop set interval when I click on no button
+    if (ele.target.dataset.option == "no") {
+      //  I put it in here because when I reload the page will show when I leave it
+      sessionStorage.setItem("counter", counter);
+      clearInterval(count);
+    }
+    if (ele.target.dataset.option == "yes") {
+      //clear first because if the user click twice the function will turn on twice it will be double fast or 3 if they click 3 times ....
+      // so i will stop it first then i will turn on it
+      clearInterval(count);
+      //  turn on the function
+      countFun();
+    }
+  });
+});
+// me image (personal image ) end
 
 // nav
 let mainNav = document.getElementById("mainNav");
@@ -253,7 +323,6 @@ let stat = true;
 let about = document.querySelector(".about");
 let Projects = document.querySelector(".about .col2");
 let h3about = document.querySelector(".box-3 h1:first-child");
-console.log(h3about);
 
 // fetch projects number from my github
 fetch("https://api.github.com/users/YousefMohammedAbokassem/repos")
