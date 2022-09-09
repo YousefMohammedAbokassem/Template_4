@@ -803,8 +803,8 @@ nav .clickNav .icons .icon a i:hover {
 }
 .main-section > div:first-child .image::before {
   content: "";
-  width: 348px;
-  height: 348px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   position: absolute;
   left: 0px;
