@@ -52,6 +52,13 @@ let clickNav = document.getElementById("clickNav"),
 
 clickul.forEach((a) => {
   a.addEventListener("click", (e) => {
+    //  remove class active from all
+    clickul.forEach((ele) => {
+      ele.classList.remove("active");
+    });
+    // adding class active to that i clicked it
+    e.target.classList.add("active");
+    // close the menu after the click
     myButton.click();
   });
 });
@@ -557,12 +564,11 @@ function popupForOS() {
           navigator.userAgent.match(reExp)[0]
         } folks <div class=text-capitalize> Hello ${country} people</div>
       `;
-      // for don't start w ith css i put it in here for render after complete DOMContentLoaded 
+        // for don't start w ith css i put it in here for render after complete DOMContentLoaded
         popupForOs.style.cssText =
           "animation: popupForOs 5s linear forwards 2s;";
       })
       .catch(function (err) {
-        
         popupForOs.innerHTML = `Hello ${
           navigator.userAgent.match(reExp)[0]
         } folks 
