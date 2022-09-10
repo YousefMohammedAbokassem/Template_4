@@ -807,7 +807,7 @@ nav {
       }
       .progresses {
         width: 100%;
-        max-width: 300px;
+        // max-width: 300px;
         transition: var(--main-transition);
         .Progress {
           .info {
@@ -829,7 +829,10 @@ nav {
               height: 100%;
               @include gradient(45deg);
               transition: var(--main-transition);
-              transition-delay: 0.1s;
+              -webkit-transition: var(--main-transition);
+              -moz-transition: var(--main-transition);
+              -ms-transition: var(--main-transition);
+              -o-transition: var(--main-transition);
             }
             .spanProgress-0 {
               transition-delay: 0.2s;

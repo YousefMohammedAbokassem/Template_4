@@ -871,7 +871,6 @@ nav .clickNav .icons .icon a i:hover {
 }
 .about .child-about .col1 .progresses {
   width: 100%;
-  max-width: 300px;
   transition: var(--main-transition);
 }
 .about .child-about .col1 .progresses .Progress .info h3,
@@ -892,7 +891,10 @@ nav .clickNav .icons .icon a i:hover {
   height: 100%;
   background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
   transition: var(--main-transition);
-  transition-delay: 0.1s;
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
 }
 .about .child-about .col1 .progresses .Progress > div:nth-child(2) .spanProgress-0 {
   transition-delay: 0.2s;
