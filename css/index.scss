@@ -827,6 +827,7 @@ nav {
               top: 0px;
               width: 10%;
               height: 100%;
+              border-radius: 0 5px 5px 0;
               @include gradient(45deg);
               transition: var(--main-transition);
               -webkit-transition: var(--main-transition);
@@ -957,12 +958,17 @@ nav {
     var(--second-color)
   );
 }
+// box cub
+
+// box paper
 .Box {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   .image {
     width: 100%;
     height: 100%;

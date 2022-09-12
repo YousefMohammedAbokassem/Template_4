@@ -440,7 +440,17 @@ imagesPortfolio.forEach((image) => {
           "href",
           "  https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
         );
+      } else if (e.target.src.includes("template60")) {
+        Linkimg.setAttribute(
+          "href",
+          "     https://yousefmohammedabokassem.github.io/todo/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "     https://yousefmohammedabokassem.github.io/todo/"
+        );
       }
+
       Linkimg.classList.add("cloneImageLink", "d-sm-block", "d-none");
       // for triangle in media 600 and lower than 600 to hide
       Linkimg2.classList.add("cloneImageLink2", "d-block", "d-sm-none");
@@ -554,7 +564,7 @@ window.onscroll = function () {
       span.style.width = span.dataset.width;
     });
   } else {
-    stat = true;
+    // stat = true;
     document.querySelector(".progresses").style.opacity = "0";
     SpansProgress.forEach(function (span) {
       span.style.width = "0%";
