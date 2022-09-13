@@ -91,6 +91,7 @@ myButton.addEventListener("click", function (e) {
 // start option
 let myOption = document.querySelector(".option");
 let myGear = document.querySelector(".fa-gear");
+let optionButton = document.querySelector(".option .optionButton");
 myGear.addEventListener("click", function () {
   myOption.classList.toggle("active");
   myGear.classList.toggle("fa-spin");
@@ -308,6 +309,12 @@ personalSpans.forEach((span) => {
     }
   });
 });
+optionButton.addEventListener("click", (e) => {
+  personalSpans[0].click();
+  spans[0].click();
+  sessionStorage.clear();
+});
+// end option
 // me image (personal image ) end
 
 // nav

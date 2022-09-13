@@ -545,6 +545,11 @@ body {
 .option .editPersonal span.active {
   opacity: 1;
 }
+.option > .optionButton {
+  cursor: pointer;
+  background-color: var(--second-color);
+  border-radius: 3px;
+}
 
 nav .clickNav {
   position: absolute;
