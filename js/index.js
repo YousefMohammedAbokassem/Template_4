@@ -351,10 +351,18 @@ lis.forEach((li) => {
     element.target.classList.add("active");
     images.forEach((image) => {
       image.style.cssText = "opacity:0; width: 0;padding: 0px;";
+      // this part for make it display none after finish the line in top  0.5s is the time for animation that I have put it in scss file in this section ( . portfolio > .row div )
+      setTimeout(() => {
+        image.style.display = "none";
+      }, 0.5 * 1000);
     });
 
     document.querySelectorAll(element.target.dataset.type).forEach((el) => {
-      el.style.cssText = "opacity:1;";
+      // 0s here for don't do fist setTime in the top after this if the browser did this before because of the time
+      setTimeout(() => {
+        el.style.cssText = "opacity:1; ";
+        el.style.display = "flex";
+      }, 0.5 * 1000);
     });
   });
 });
