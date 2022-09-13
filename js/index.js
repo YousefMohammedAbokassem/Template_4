@@ -312,6 +312,7 @@ personalSpans.forEach((span) => {
 optionButton.addEventListener("click", (e) => {
   personalSpans[0].click();
   spans[0].click();
+  
   sessionStorage.clear();
 });
 // end option
