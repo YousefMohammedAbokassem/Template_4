@@ -312,7 +312,7 @@ personalSpans.forEach((span) => {
 optionButton.addEventListener("click", (e) => {
   personalSpans[0].click();
   spans[0].click();
-  
+
   sessionStorage.clear();
 });
 // end option
@@ -340,17 +340,50 @@ fetch("https://api.github.com/users/YousefMohammedAbokassem/repos")
   .then(function (res) {
     res.length < 10 ? (h3about.innerHTML = `0${res.length}`) : res.length;
   });
+window.addEventListener("scroll", () => {
+  if (
+    window.scrollY >= about.offsetTop - 300 &&
+    window.scrollY < services.offsetTop - 300
+  ) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left: 105px; ";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[1].classList.add("links");
+    //
+  }
+});
 // button
 let MyButton = document.querySelector(".myButton");
 // services
 let services = document.querySelector(".services");
+
 // myportfolio
 // start portfolio
 const lis = document.querySelectorAll(".portfolio ul li"),
   images = document.querySelectorAll(".portfolio .all"),
   imgs = document.querySelectorAll(".portfolio .all img"),
   portfolio = document.getElementById("Portfolio");
-
+// scroll
+window.addEventListener("scroll", () => {
+  if (
+    window.scrollY >= services.offsetTop - 300 &&
+    window.scrollY < portfolio.offsetTop - 300
+  ) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left: 194px; width: 83px; ";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[2].classList.add("links");
+  }
+});
+// scroll
 lis.forEach((li) => {
   li.addEventListener("click", (element) => {
     lis.forEach((li) => {
@@ -362,7 +395,7 @@ lis.forEach((li) => {
       // this part for make it display none after finish the line in top  0.5s is the time for animation that I have put it in scss file in this section ( . portfolio > .row div )
       setTimeout(() => {
         image.style.display = "none";
-      }, 0.5 * 1000);
+      }, 0.8 * 1000);
     });
 
     document.querySelectorAll(element.target.dataset.type).forEach((el) => {
@@ -370,7 +403,7 @@ lis.forEach((li) => {
       setTimeout(() => {
         el.style.cssText = "opacity:1; ";
         el.style.display = "flex";
-      }, 0.5 * 1000);
+      }, 0.8 * 1000);
     });
   });
 });
@@ -382,7 +415,7 @@ imagesPortfolio.forEach((image) => {
     let re = /\S*link.\w+/gi;
     let bool = re.test(e.target.src);
     // make box
-    // if true dont show link image in popup else show the image in popup
+    // if true don't show link image in popup else show the image in popup
     if (bool) {
       return false;
     } else {
@@ -423,47 +456,56 @@ imagesPortfolio.forEach((image) => {
       } else if (e.target.src.includes("template20")) {
         Linkimg.setAttribute(
           "href",
-          " https://yousefmohammedabokassem.github.io/temlate-2/"
+          "https://yousefmohammedabokassem.github.io/temlate-2/"
         );
         Linkimg2.setAttribute(
           "href",
-          " https://yousefmohammedabokassem.github.io/temlate-2/"
+          "https://yousefmohammedabokassem.github.io/temlate-2/"
         );
       } else if (e.target.src.includes("template30")) {
         Linkimg.setAttribute(
           "href",
-          " https://yousefmohammedabokassem.github.io/template_3/"
+          "https://yousefmohammedabokassem.github.io/template_3/"
         );
         Linkimg2.setAttribute(
           "href",
-          " https://yousefmohammedabokassem.github.io/template_3/"
+          "https://yousefmohammedabokassem.github.io/template_3/"
         );
       } else if (e.target.src.includes("template40")) {
         Linkimg.setAttribute(
           "href",
-          "  https://yousefmohammedabokassem.github.io/Template_4/"
+          "https://yousefmohammedabokassem.github.io/Template_4/"
         );
         Linkimg2.setAttribute(
           "href",
-          "  https://yousefmohammedabokassem.github.io/Template_4/"
+          "https://yousefmohammedabokassem.github.io/Template_4/"
         );
       } else if (e.target.src.includes("template50")) {
         Linkimg.setAttribute(
           "href",
-          " https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
+          "https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
         );
         Linkimg2.setAttribute(
           "href",
-          "  https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
+          "https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
         );
       } else if (e.target.src.includes("template60")) {
         Linkimg.setAttribute(
           "href",
-          "     https://yousefmohammedabokassem.github.io/todo/"
+          "https://yousefmohammedabokassem.github.io/todo/"
         );
         Linkimg2.setAttribute(
           "href",
-          "     https://yousefmohammedabokassem.github.io/todo/"
+          "https://yousefmohammedabokassem.github.io/todo/"
+        );
+      } else if (e.target.src.includes("template70")) {
+        Linkimg.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/Template-7/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/Template-7/"
         );
       }
 
@@ -490,7 +532,19 @@ imagesPortfolio.forEach((image) => {
     }
   });
 });
-
+// scroll portfolio
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= portfolio.offsetTop - 300) {
+    let Hover = document.querySelector(".Hover");
+    Hover.style.cssText = "left: 306px; width: 84px;";
+    //
+    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
+    myLinks.forEach((a) => {
+      a.classList.remove("links");
+    });
+    myLinks[3].classList.add("links");
+  }
+});
 // end portfolio
 const fromRight = document.querySelectorAll(".fromRight"),
   fromLeft = document.querySelectorAll(".fromLeft"),
@@ -597,40 +651,6 @@ window.onscroll = function () {
     });
     myLinks[0].classList.add("links");
     //
-  } else if (
-    window.scrollY >= about.offsetTop - 300 &&
-    window.scrollY < services.offsetTop - 300
-  ) {
-    let Hover = document.querySelector(".Hover");
-    Hover.style.cssText = "left: 105px; ";
-    //
-    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
-    myLinks.forEach((a) => {
-      a.classList.remove("links");
-    });
-    myLinks[1].classList.add("links");
-    //
-  } else if (
-    window.scrollY >= services.offsetTop - 300 &&
-    window.scrollY < portfolio.offsetTop - 300
-  ) {
-    let Hover = document.querySelector(".Hover");
-    Hover.style.cssText = "left: 194px; width: 83px; ";
-    //
-    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
-    myLinks.forEach((a) => {
-      a.classList.remove("links");
-    });
-    myLinks[2].classList.add("links");
-  } else if (window.scrollY >= portfolio.offsetTop - 300) {
-    let Hover = document.querySelector(".Hover");
-    Hover.style.cssText = "left: 306px; width: 84px;";
-    //
-    let myLinks = document.querySelectorAll("#navbarSupportedContent ul li a");
-    myLinks.forEach((a) => {
-      a.classList.remove("links");
-    });
-    myLinks[3].classList.add("links");
   } // // end nav scroll
 };
 
