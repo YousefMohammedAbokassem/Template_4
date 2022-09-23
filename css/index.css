@@ -954,6 +954,7 @@ nav .clickNav .icons .icon a i:hover {
 }
 .about .child-about .col2 .box:hover {
   border-color: transparent;
+  box-shadow: 0 0 3px 1px var(--main-color), 0 0 7px 1px var(--second-color);
 }
 .about .child-about .col2 .box h1 {
   font-size: 40px;
@@ -964,9 +965,6 @@ nav .clickNav .icons .icon a i:hover {
   font-size: 30px;
   transition: var(--main-transition);
   font-weight: bold;
-}
-.about .child-about .col2 .box:hover {
-  box-shadow: 0 0 3px var(--main-color), 0 0 6px var(--second-color);
 }
 .about .child-about .col2 .box:hover h1 {
   transform: scale(1.3);

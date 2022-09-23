@@ -102,39 +102,44 @@ let spans = document.querySelectorAll(".option .color span ");
 let localColor = sessionStorage.getItem("color1");
 
 if (localColor !== null) {
-  document.documentElement.style.setProperty(
-    "--main-color",
-    sessionStorage.getItem("color1")
-  );
-  document.documentElement.style.setProperty(
-    "--second-color",
-    sessionStorage.getItem("color2")
-  );
-  document.documentElement.style.setProperty(
-    "--dark-bg",
-    sessionStorage.getItem("color3")
-  );
-  document.documentElement.style.setProperty(
-    "--light-bg",
-    sessionStorage.getItem("color4")
-  );
-  document.documentElement.style.setProperty(
-    "--text-color",
-    sessionStorage.getItem("color5")
-  );
-  document.documentElement.style.setProperty(
-    "--spin-color",
-    sessionStorage.getItem("color6")
-  );
-  document.documentElement.style.setProperty(
-    "--spinBackground-color",
-    sessionStorage.getItem("color7")
-  );
-  spans.forEach(function (span) {
-    span.classList.remove("active");
-
+  // document.documentElement.style.setProperty(
+  //   "--main-color",
+  //   sessionStorage.getItem("color1")
+  // );
+  // document.documentElement.style.setProperty(
+  //   "--second-color",
+  //   sessionStorage.getItem("color2")
+  // );
+  // document.documentElement.style.setProperty(
+  //   "--dark-bg",
+  //   sessionStorage.getItem("color3")
+  // );
+  // document.documentElement.style.setProperty(
+  //   "--light-bg",
+  //   sessionStorage.getItem("color4")
+  // );
+  // document.documentElement.style.setProperty(
+  //   "--text-color",
+  //   sessionStorage.getItem("color5")
+  // );
+  // document.documentElement.style.setProperty(
+  //   "--spin-color",
+  //   sessionStorage.getItem("color6")
+  // );
+  // document.documentElement.style.setProperty(
+  //   "--spinBackground-color",
+  //   sessionStorage.getItem("color7")
+  // );
+  spans.forEach(function (span, i) {
+    // span.classList.remove("active");
     if (span.dataset.color1 === localColor) {
-      span.classList.add("active");
+      console.log(span, "span");
+      // span.classList.add("active");
+      document.addEventListener("DOMContentLoaded", function () {
+        span.click();
+      });
+
+      // console.log(span.click());
     }
   });
 }
@@ -299,10 +304,9 @@ personalSpans.forEach((span) => {
       //  I put it in here because when I reload the page will show when I leave it
       sessionStorage.setItem("counter", counter);
       clearInterval(count);
-    }
-    if (ele.target.dataset.option == "yes") {
+    } else if (ele.target.dataset.option == "yes") {
       //clear first because if the user click twice the function will turn on twice it will be double fast or 3 if they click 3 times ....
-      // so i will stop it first then i will turn on it
+      // so i will stop it first then i will turn it on
       clearInterval(count);
       //  turn on the function
       countFun();
@@ -708,7 +712,7 @@ window.addEventListener("online", function () {
 });
 window.addEventListener("offline", function () {
   popupForOnOffLine.innerHTML =
-    " <div class=off ></div> ops you lost your internet collection";
+    " <div class=off ></div> oops you lost your internet connection";
   popupForOnOffLine.style.cssText =
     "  animation: 2s linear forwards  popupForOnOffLine;";
 });

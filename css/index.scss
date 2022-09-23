@@ -892,6 +892,9 @@ nav {
         }
         &:hover {
           border-color: transparent;
+          box-shadow: 0 0 3px 1px var(--main-color),
+            0 0 7px 1px var(--second-color);
+          // box-shadow: 0 0 3px var(--main-color), 0 0 6px var(--second-color);
         }
         h1 {
           font-size: 40px;
@@ -902,9 +905,6 @@ nav {
           font-size: 30px;
           transition: var(--main-transition);
           font-weight: bold;
-        }
-        &:hover {
-          box-shadow: 0 0 3px var(--main-color), 0 0 6px var(--second-color);
         }
         &:hover h1 {
           transform: scale(1.3);
