@@ -618,7 +618,8 @@ window.onscroll = function () {
     window.scrollY >=
     document.querySelector(".progresses").offsetTop +
       document.querySelector(".progresses").offsetHeight -
-      window.innerHeight
+      window.innerHeight -
+      100
   ) {
     document.querySelector(".progresses").style.opacity = "1";
     if (stat) {
