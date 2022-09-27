@@ -1146,6 +1146,87 @@ nav {
 .portfolio {
   background-color: var(--dark-bg);
 }
+.contact {
+  background-color: var(--light-bg);
+  h2 {
+    letter-spacing: 10px;
+    @include fillColor();
+    @include gradient(45deg);
+    font-weight: bold;
+  }
+  .social_3,
+  .social_2 {
+    .social {
+      z-index: 1;
+      position: relative;
+      border: 3px solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(
+        to right,
+        var(--main-color),
+        var(--second-color)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      transition: var(--main-transition);
+      &::after {
+        content: "";
+        position: absolute;
+        width: 99%;
+        height: 95%;
+        opacity: 0;
+        transition: var(--main-transition);
+        transform-origin: center center;
+        z-index: -1;
+        @include gradient(45deg);
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:hover::after {
+        opacity: 1;
+        color: #fff;
+      }
+      &:hover > h4,
+      &:hover > i {
+        background-image: linear-gradient(to right, #fff, #fff);
+      }
+      > h4 {
+        margin-left: 9px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0;
+        @include gradient(45deg);
+        transition: var(--main-transition);
+        @include media("verySmall") {
+          font-size: 0.9rem;
+        }
+      }
+      > i {
+        @include gradient(45deg);
+        font-size: 1.8rem;
+        transition: var(--main-transition);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: var(--main-transition);
+      }
+      @include media("mobile") {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+      }
+      @include media("verySmall") {
+        width: 100%;
+      }
+    }
+  }
+}
+
 // end Portfolio
 @include keyF(image) {
   from {

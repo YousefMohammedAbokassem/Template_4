@@ -1217,6 +1217,101 @@ nav .clickNav .icons .icon a i:hover {
   background-color: var(--dark-bg);
 }
 
+.contact {
+  background-color: var(--light-bg);
+}
+.contact h2 {
+  letter-spacing: 10px;
+  background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+  font-weight: bold;
+}
+.contact .social_3 .social,
+.contact .social_2 .social {
+  z-index: 1;
+  position: relative;
+  border: 3px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, var(--main-color), var(--second-color));
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: var(--main-transition);
+}
+.contact .social_3 .social::after,
+.contact .social_2 .social::after {
+  content: "";
+  position: absolute;
+  width: 99%;
+  height: 95%;
+  opacity: 0;
+  transition: var(--main-transition);
+  transform-origin: center center;
+  z-index: -1;
+  background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+}
+.contact .social_3 .social:hover,
+.contact .social_2 .social:hover {
+  transform: scale(1.1);
+}
+.contact .social_3 .social:hover::after,
+.contact .social_2 .social:hover::after {
+  opacity: 1;
+  color: #fff;
+}
+.contact .social_3 .social:hover > h4, .contact .social_3 .social:hover > i,
+.contact .social_2 .social:hover > h4,
+.contact .social_2 .social:hover > i {
+  background-image: linear-gradient(to right, #fff, #fff);
+}
+.contact .social_3 .social > h4,
+.contact .social_2 .social > h4 {
+  margin-left: 9px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0;
+  background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+  transition: var(--main-transition);
+}
+@media (max-width:500px) {
+  .contact .social_3 .social > h4,
+.contact .social_2 .social > h4 {
+    font-size: 0.9rem;
+  }
+}
+.contact .social_3 .social > i,
+.contact .social_2 .social > i {
+  background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
+  font-size: 1.8rem;
+  transition: var(--main-transition);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: var(--main-transition);
+}
+@media (max-width:767px) {
+  .contact .social_3 .social,
+.contact .social_2 .social {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+  }
+}
+@media (max-width:500px) {
+  .contact .social_3 .social,
+.contact .social_2 .social {
+    width: 100%;
+  }
+}
+
 @keyframes image {
   from {
     transform: translateX(-8px);
