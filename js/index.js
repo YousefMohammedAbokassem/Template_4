@@ -333,8 +333,22 @@ let span = document.querySelectorAll(".Progress .info span:first-child");
 
 let stat = true;
 let about = document.querySelector(".about");
+let boxes = document.querySelectorAll(".about .child-about .box");
+boxes.forEach((box) => {
+  box.onmousemove = (e) => {
+    // console.log(e, "e");
+    const x = e.pageX - box.offsetLeft;
+    const y = e.pageY - box.offsetTop;
+    box.style.setProperty("--x", `${x}px`);
+    box.style.setProperty("--y", `${y}px`);
+    console.log(x);
+    console.log(y);
+  };
+});
+
 let Projects = document.querySelector(".about .col2");
 let h3about = document.querySelector(".box-3 h1:first-child");
+console.log(boxes, "boxes");
 
 // fetch projects number from my github
 fetch("https://api.github.com/users/YousefMohammedAbokassem/repos")
@@ -691,7 +705,7 @@ function popupForOS() {
       .catch(function (err) {
         popupForOs.innerHTML = `Hello ${
           navigator.userAgent.match(reExp)[0]
-        } folks 
+        } folks
         `;
         // for don't start w ith css i put it in here for render after complete DOMContentLoaded
         popupForOs.style.cssText =

@@ -942,16 +942,19 @@ nav .clickNav .icons .icon a i:hover {
 .about .child-about .col2 .box::before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 0%;
   height: 0%;
-  background-color: var(--second-color);
-  bottom: 0px;
-  left: 0px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  top: var(--y);
+  left: var(--x);
   z-index: -1;
-  transition: var(--main-transition);
+  transition: width 1s, height 1s;
+  background-color: var(--second-color);
 }
 .about .child-about .col2 .box:hover::before {
-  height: 100%;
+  height: 700px;
+  width: 700px;
 }
 .about .child-about .col2 .box:hover {
   border-color: transparent;
