@@ -34,6 +34,24 @@ body {
   transition: 0.5s;
 }
 
+.hoverPosition::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  top: var(--y);
+  left: var(--x);
+  z-index: -1;
+  transition: width 1s, height 1s;
+  background-color: var(--second-color);
+}
+.hoverPosition:hover::before {
+  height: 700px;
+  width: 700px;
+}
+
 .bt {
   background-image: linear-gradient(45deg, var(--main-color), var(--second-color));
   background-clip: text;
@@ -938,23 +956,6 @@ nav .clickNav .icons .icon a i:hover {
   overflow: hidden;
   z-index: 1;
   transition: var(--main-transition);
-}
-.about .child-about .col2 .box::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 0%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  top: var(--y);
-  left: var(--x);
-  z-index: -1;
-  transition: width 1s, height 1s;
-  background-color: var(--second-color);
-}
-.about .child-about .col2 .box:hover::before {
-  height: 700px;
-  width: 700px;
 }
 .about .child-about .col2 .box:hover {
   border-color: transparent;
