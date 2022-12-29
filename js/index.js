@@ -133,7 +133,7 @@ if (localColor !== null) {
   spans.forEach(function (span, i) {
     // span.classList.remove("active");
     if (span.dataset.color1 === localColor) {
-      console.log(span, "span");
+      // console.log(span, "span");
       // span.classList.add("active");
       document.addEventListener("DOMContentLoaded", function () {
         span.click();
@@ -353,7 +353,9 @@ fetch("https://api.github.com/users/YousefMohammedAbokassem/repos")
     return res.json();
   })
   .then(function (res) {
-    res.length < 10 ? (h3about.innerHTML = `0${res.length}`) : res.length;
+    res.length < 10
+      ? (h3about.innerHTML = `0${res.length - 1}`)
+      : res.length - 1;
   });
 window.addEventListener("scroll", () => {
   if (
@@ -521,6 +523,15 @@ imagesPortfolio.forEach((image) => {
         Linkimg2.setAttribute(
           "href",
           "https://yousefmohammedabokassem.github.io/Template-7/"
+        );
+      } else if (e.target.src.includes("template80")) {
+        Linkimg.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/dashboard/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/dashboard/"
         );
       }
 
