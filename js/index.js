@@ -533,6 +533,15 @@ imagesPortfolio.forEach((image) => {
           "href",
           "https://yousefmohammedabokassem.github.io/dashboard/"
         );
+      } else if (e.target.src.includes("template90")) {
+        Linkimg.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/mobile/"
+        );
+        Linkimg2.setAttribute(
+          "href",
+          "https://yousefmohammedabokassem.github.io/mobile/"
+        );
       }
 
       Linkimg.classList.add("cloneImageLink", "d-sm-block", "d-none");

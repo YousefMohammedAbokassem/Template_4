@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .portfolio {
+        background-color: var(--section-color);
+        overflow: hidden;
+      }
+      .portfolio ul li {
+        padding: 0.5rem 1rem;
+        transition: 0.3s;
+        cursor: pointer;
+        color: var(--theme-text);
+        opacity: 0.9;
+      }
+      @media (max-width: 576px) {
+        .portfolio ul li {
+          padding: 0.5rem;
+        }
+      }
+      .portfolio ul li.active {
+        background-image: linear-gradient(
+          45deg,
+          var(--main-color),
+          var(--second-color)
+        );
+        color: var(--text-color);
+        border-radius: 50px;
+      }
+      .portfolio ul li.active:hover {
+        color: var(--linkText-color);
+      }
+      .portfolio ul li:hover {
+        color: var(--roundedLink-color);
+      }
+      @media (max-width: 500px) {
+        .portfolio ul li {
+          margin: 10px 0;
+        }
+      }
+      @media (max-width: 500px) {
+        .portfolio ul {
+          flex-wrap: wrap;
+        }
+      }
+      .portfolio .row > div {
+        counter-increment: counter;
+        margin: 10px 0px;
+        transition: 0.8s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .portfolio .row .image {
+        border: 4px solid transparent;
+        position: relative;
+        overflow: hidden;
+        border-radius: 2.2rem;
+        box-shadow: 0px 0px 3px var(--roundedLink-color);
+      }
+      .portfolio .row .image img {
+        max-width: 100%;
+      }
+      .portfolio .row .image::before {
+        content: "template_" counter(counter);
+        position: absolute;
+        pointer-events: none;
+        transition: 0.5s;
+        left: -100px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.3019607843);
+      }
+      .portfolio .row .image span {
+        bottom: 29px;
+        left: -64%;
+        text-transform: capitalize;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        padding: 0 2px 0 6px;
+        color: #eee;
+        background: rgba(0, 0, 0, 0.5215686275);
+      }
+      .portfolio .row .image span::after {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 40px;
+        border: 31px solid transparent;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transition: 0.5s;
+        top: -77%;
+        left: 100%;
+        border-color: transparent transparent transparent
+          rgba(0, 0, 0, 0.5215686275);
+      }
+      .portfolio .row .image:hover::before {
+        left: 0px;
+      }
+      .portfolio .row .image:hover::after {
+        left: 132px;
+      }
+      .portfolio .row .image:hover span {
+        left: 15px;
+      }
+      @media (max-width: 767px) {
+        .portfolio .row .image:hover .links .link img {
+          margin-left: 20px;
+        }
+      }
+      @media (max-width: 500px) {
+        .portfolio .row .image:hover .links .link img {
+          margin-left: 68px;
+        }
+      }
+
+      .portfolio {
+        background-color: var(--dark-bg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Portfolio" class="portfolio py-5 text-center">
+      <div class="main-title fromTop mb-5">
+        <h2 class="my-3 text-capitalize">my portfolio</h2>
+        <p class="text-uppercase">I have built these</p>
+      </div>
+      <ul
+        class="d-flex justify-content-center align-items-center flex-sm-row flex-column list-unstyled"
+      >
+        <li class="active" data-type=".all">All</li>
+        <!--design-->
+        <li class="" data-type=".html">html/css</li>
+        <!--scss-->
+        <li class="" data-type=".scss">SCSS/JS</li>
+        <!--boot-->
+        <li class="" data-type=".boot">JS/BOOTSTRAP/SCSS</li>
+        <!-- react -->
+        <li class="" data-type=".react">REACT</li>
+        <!-- <li class="app">App</li> -->
+      </ul>
+      <div class="row mx-1 mb-4">
+        <div class="col-md-6 mb-3 html all">
+          <!-- <div class="image fromLeft">
+            <img src="./img/link.png"  class="myLinkImg" alt="" />
+          </div> -->
+          <!--  -->
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template101.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href=" https://yousefmohammedabokassem.github.io/trmplate-1-html-css/"
+                        target="_blank"
+                      >
+                        <img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template102.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href=" https://yousefmohammedabokassem.github.io/trmplate-1-html-css/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <!--  -->
+        <div class="col-md-6 html all">
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template201.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="  https://yousefmohammedabokassem.github.io/temlate-2/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template202png.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="  https://yousefmohammedabokassem.github.io/temlate-2/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+        <!--2222  -->
+        <div class="col-md-6 mb-3 scss all">
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template301.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="  https://yousefmohammedabokassem.github.io/template_3/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+              <!-- start -->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template302.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="  https://yousefmohammedabokassem.github.io/template_3/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+        <!-- enddddddddddddd -->
+
+        <div class="col-md-6 mb-3 boot scss all">
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template401.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/Template_4/ "
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template402.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/Template_4/ "
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+
+        <!-- -->
+        <!--  -->
+        <div class="col-md-6 boot scss all">
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template501.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template502.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/Bootstrap_Design_1/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+        <!-- effect:card effect -->
+        <div class="col-md-6 react all">
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box BoxCub glare">
+                  <div class="image">
+                    <img src="./img/template701.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/Template-7/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template702.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/Template-7/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+        <!-- effect:card effect -->
+        <!-- effect:card effect -->
+        <div class="col-md-6 react all">
+          <div class="swiper main-box mySwiper">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box BoxCub glare">
+                  <div class="image">
+                    <img src="./img/template801.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="https://yousefmohammedabokassem.github.io/dashboard/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template802.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="https://yousefmohammedabokassem.github.io/dashboard/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+              <!-- start -->
+
+              <!--end-->
+            </div>
+          </div>
+        </div>
+        <!-- effect:card effect -->
+        <!-- cube -->
+        <div class="col-md-6 react all">
+          <div class="swiper main-box myCube">
+            <div class="swiper-wrapper">
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box BoxCub glare">
+                  <div class="image">
+                    <img src="./img/template601.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/todo/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+              <!-- start -->
+              <div class="swiper-slide main-box">
+                <div class="Box glare">
+                  <div class="image">
+                    <img src="./img/template602.png" alt="" />
+                    <span>visit the project</span>
+                    <div class="links">
+                      <a
+                        class="link"
+                        href="   https://yousefmohammedabokassem.github.io/todo/"
+                        target="_blank"
+                        ><img src="./img/link.png" class="myLinkImg" alt=""
+                      /></a>
+                      <!-- note : if you change this image on next days make sure that you will call it img/link.(any(png or jpj)) because I used regular expression on this name  
+                      take a look in javascript file search 
+                      (regular expression for link )
+                      -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+        <!-- cube -->
+      </div>
+    </div>
+    <script>
+      const lis = document.querySelectorAll(".portfolio ul li"),
+        images = document.querySelectorAll(".portfolio .all"),
+        imgs = document.querySelectorAll(".portfolio .all img"),
+        portfolio = document.getElementById("Portfolio");
+      // scroll
+      window.addEventListener("scroll", () => {
+        if (
+          window.scrollY >= services.offsetTop - 300 &&
+          window.scrollY < portfolio.offsetTop - 300
+        ) {
+          let Hover = document.querySelector(".Hover");
+          Hover.style.cssText = "left: 194px; width: 83px; ";
+          //
+          let myLinks = document.querySelectorAll(
+            "#navbarSupportedContent ul li a"
+          );
+          myLinks.forEach((a) => {
+            a.classList.remove("links");
+          });
+          myLinks[2].classList.add("links");
+        }
+      });
+      // scroll
+      lis.forEach((li) => {
+        li.addEventListener("click", (element) => {
+          lis.forEach((li) => {
+            li.classList.remove("active");
+          });
+          element.target.classList.add("active");
+          images.forEach((image) => {
+            image.style.cssText = "opacity:0; width: 0;padding: 0px;";
+            // this part for make it display none after finish the line in top  0.5s is the time for animation that I have put it in scss file in this section ( . portfolio > .row div )
+            setTimeout(() => {
+              image.style.display = "none";
+            }, 0.8 * 1000);
+          });
+
+          document
+            .querySelectorAll(element.target.dataset.type)
+            .forEach((el) => {
+              // 0s here for don't do fist setTime in the top after this if the browser did this before because of the time
+              setTimeout(() => {
+                el.style.cssText = "opacity:1; ";
+                el.style.display = "flex";
+              }, 0.8 * 1000);
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
